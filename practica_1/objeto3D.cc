@@ -8,7 +8,7 @@
 #include "objeto3D.h"
 
 Objeto3D::Objeto3D(){
-    axisSize = 200;
+    //axisSize = 200;
 	createArrayData();
 
 }
@@ -29,9 +29,9 @@ void Objeto3D::createArrayData(){
 	//colorArray[9] = 0; colorArray[10] = 0; colorArray[11] = 1;
 	
 
-	vertexArray[0] = -axisSize/2; vertexArray[1] = 0; vertexArray[2] = 0;
-	vertexArray[3] = axisSize/2; vertexArray[4] = 0; vertexArray[5] = 0;
-	vertexArray[6] = 0; vertexArray[7] = -axisSize/2; vertexArray[8] = 0;
+	vertexArray[0] = -200/2; vertexArray[1] = 0; vertexArray[2] = 0;
+	vertexArray[3] = 200/2; vertexArray[4] = 0; vertexArray[5] = 0;
+	vertexArray[6] = 0; vertexArray[7] = -200/2; vertexArray[8] = 0;
 	//vertexArray[9] = 0; vertexArray[10] = -axisSize; vertexArray[11] = 0;
 	
 }
@@ -41,5 +41,5 @@ void Objeto3D::drawArray(){
 	glVertexPointer(3, GL_FLOAT, 0, vertexArray );
 	glEnableClientState(GL_COLOR_ARRAY);
 	glColorPointer(3, GL_FLOAT, 0, colorArray );
-	glDrawArrays( GL_LINES, 0, 3 ) ;
+	glDrawArrays( GL_LINE_LOOP, 0, 3 ) ;
 }
