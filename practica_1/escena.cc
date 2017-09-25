@@ -69,7 +69,7 @@ switch (Tecla1){
 
 
 //**************************************************************************
-// Funcion para definir la transformación de proyeccion
+// Funcion para definir la transformaciÃ³n de proyeccion
 //***************************************************************************
 
 void Escena::change_projection()  {
@@ -88,7 +88,7 @@ glViewport(0,0,newWidth,newHeight);
 
 
 //**************************************************************************
-// Funcion para definir la transformación de vista (posicionar la camara)
+// Funcion para definir la transformaciÃ³n de vista (posicionar la camara)
 //***************************************************************************
 
 

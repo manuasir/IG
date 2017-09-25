@@ -3,7 +3,7 @@
 
 class Objeto3D {
 private:
-
+	
 public:
 	Objeto3D();
 	void construye(init);
