@@ -2,14 +2,14 @@
 #define _ESCENA_H
 
 #include "ejes.h"
-#include "objeto3D.h"
+#include "cubo.h"
 
 class Escena {
 private:
 // tamaño de los ejes
 #define AXIS_SIZE 5000
 Ejes ejes;
-Objeto3D myObject;
+Cubo myObject;
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;

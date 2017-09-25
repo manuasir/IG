@@ -5,16 +5,13 @@ class Objeto3D {
 
 private:
 	float axisSize;
-	float vertexArray[12];
-	float colorArray[12];
 
 public:
 	Objeto3D();
 	void changeAxisSize(float newSize);
-	void draw();
+	void draw(float * vertexArray, float * colorArray, int n);
 
 private:
-	void createArrayData();
-	void drawArray();
+	void drawArray(float * vertexArray, float * colorArray, int n);
 };
 #endif
