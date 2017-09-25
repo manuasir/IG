@@ -34,7 +34,7 @@ void Escena::inicializar(int UI_window_width,int UI_window_height) {
 // Funcion que dibuja objetos en la escena
 //***************************************************************************
 void Escena::draw_objects() {
-
+	myObject.draw();
 }
 
 
@@ -50,6 +50,7 @@ void Escena::dibujar() {
 int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 
     std::cout << "Tecla" << Tecla1<< std::endl;
+
 	if (toupper(Tecla1)=='Q') return 1;
 	else return 0;
 }
