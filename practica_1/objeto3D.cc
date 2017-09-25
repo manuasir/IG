@@ -8,8 +8,7 @@
 #include "objeto3D.h"
 
 Objeto3D::Objeto3D(){
-    axisSize = 50;
-	//createArrayData();
+    axisSize = 200;
 }
 
 void Objeto3D::changeAxisSize(float newSize) {
@@ -25,6 +24,6 @@ void Objeto3D::drawArray(float * vertexArray, float * colorArray, int n){
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, vertexArray );
 	glEnableClientState(GL_COLOR_ARRAY);
-	glColorPointer(n, GL_FLOAT, 0, colorArray );
-	glDrawArrays( GL_LINE_LOOP, 0, n ) ;
+	glColorPointer(3, GL_FLOAT, 0, colorArray );
+	glDrawArrays( GL_POINTS, 0, n ) ;
 }

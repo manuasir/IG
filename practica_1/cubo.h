@@ -5,9 +5,8 @@
 class Cubo : public Objeto3D
 {
 private:
-
-	float vertexArray[12];
-	float colorArray[12];
+	float vertexArray[24];
+	float colorArray[3];
 
 public:
 Cubo();
