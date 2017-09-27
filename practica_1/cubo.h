@@ -5,13 +5,9 @@
 class Cubo : public Objeto3D
 {
 private:
-	float vertexArray[24];
-	float colorArray[3];
 
 public:
-Cubo();
-void createArrayData();
-void draw();
-
+Cubo(float tam);
+void createArrayData(float tam);
 };
 #endif
