@@ -14,9 +14,10 @@ class Objeto3D {
 
 protected:
 	
-	vector<GLfloat[3]> vertices;
+	vector< vector<GLfloat> > vertices;
 	//vector<GLuint[3]> lados;
-	map<int,GLfloat[3]> lados;
+	//map<int,vector<GLfloat[3]> > triangulos;
+	GLubyte triangulos;
 
 public:
 

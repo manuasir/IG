@@ -7,7 +7,7 @@ class Cubo : public Objeto3D
 private:
 
 public:
-Cubo(float tam);
-void createArrayData(float tam);
+Cubo();
+void createArrayData();
 };
 #endif

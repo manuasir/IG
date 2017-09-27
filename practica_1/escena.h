@@ -11,7 +11,7 @@ private:
 #define AXIS_SIZE 5000
 Ejes ejes;
 Objeto3D objeto;
-//Cubo cubo(0.5);
+Cubo cubo;
 
 
 // variables que definen la posicion de la camara en coordenadas polares
