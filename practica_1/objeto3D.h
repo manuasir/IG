@@ -7,13 +7,12 @@
 
 using namespace std;
 
-
-
 class Objeto3D {
 
 public:
 
 	vector<float> vertices;
+	vector<float> colores;
 	vector<GLubyte> indices;
 	int num_tri;
 	GLenum mode;
@@ -21,7 +20,6 @@ public:
 public:
 	Objeto3D();
 	void dibujar();
-	void createArray();
 	void setNumTri(int num){ num_tri=num; }
 	void setGlEnum(GLenum elem){ mode=elem; }
 };
