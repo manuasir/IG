@@ -21,8 +21,9 @@ void Objeto3D::dibujar(){
 
 	//createArray();
 	//glColor3f(1, 1, 0);
+	glPolygonMode(GL_FRONT,GL_LINE);
 	glEnableClientState(GL_VERTEX_ARRAY);
  	//glEnable(GL_CULL_FACE);
 	glVertexPointer(3, GL_FLOAT, 0, vertices.data() );
-	glDrawElements( GL_TRIANGLES, 3,GL_UNSIGNED_BYTE, indices.data() ) ;	
+	glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indices.data() ) ;	
 }

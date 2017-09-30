@@ -15,15 +15,15 @@ public:
 
 	vector<float> vertices;
 	vector<GLubyte> indices;
+	int num_tri;
+	GLenum mode;
 
 public:
 	Objeto3D();
 	void dibujar();
 	void createArray();
-	vector<float> getVertices() { return vertices; };
-	void setVertices(vector<float> verts) { vertices=verts; };
-	vector<GLubyte> getIndices() { return indices; };
-	void setIndices(vector<GLubyte> index) { indices=index; };
+	void setNumTri(int num){ num_tri=num; }
+	void setGlEnum(GLenum elem){ mode=elem; }
 };
 
 #endif
