@@ -50,7 +50,7 @@ void Escena::dibujar() {
 
 int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 
-    std::cout << "Tecla" << Tecla1<< std::endl;
+    //std::cout << "Tecla" << Tecla1<< std::endl;
 
 	if (toupper(Tecla1)=='Q') return 1;
 	else return 0;
@@ -66,7 +66,7 @@ switch (Tecla1){
 	case GLUT_KEY_PAGE_DOWN:Observer_distance/=1.2;break;
 	}
 
-	std::cout << Observer_distance << std::endl;
+	//std::cout << Observer_distance << std::endl;
 }
 
 
@@ -75,17 +75,17 @@ switch (Tecla1){
 //***************************************************************************
 
 void Escena::change_projection()  {
-glMatrixMode(GL_PROJECTION);
-glLoadIdentity();
-glFrustum(-Width,Width,-Height,Height,Front_plane,Back_plane);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glFrustum(-Width,Width,-Height,Height,Front_plane,Back_plane);
 }
 
 
 void Escena::redimensionar(int newWidth,int newHeight) {
-change_projection();
-Width=newWidth/10;
-Height=newHeight/10;
-glViewport(0,0,newWidth,newHeight);
+	change_projection();
+	Width=newWidth/10;
+	Height=newHeight/10;
+	glViewport(0,0,newWidth,newHeight);
 }
 
 
@@ -96,13 +96,12 @@ glViewport(0,0,newWidth,newHeight);
 
 
 void Escena::change_observer() {
-
-// posicion del observador
-glMatrixMode(GL_MODELVIEW);
-glLoadIdentity();
-glTranslatef(0,0,-Observer_distance);
-glRotatef(Observer_angle_x,1,0,0);
-glRotatef(Observer_angle_y,0,1,0);
+	// posicion del observador
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glTranslatef(0,0,-Observer_distance);
+	glRotatef(Observer_angle_x,1,0,0);
+	glRotatef(Observer_angle_y,0,1,0);
 }
 
 
@@ -112,7 +111,7 @@ glRotatef(Observer_angle_y,0,1,0);
 
 void Escena::draw_axis()
 {
-ejes.draw();
+	ejes.draw();
 }
 
 

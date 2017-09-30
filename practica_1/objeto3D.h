@@ -4,7 +4,6 @@
 #include <GL/glut.h>
 #include <stdlib.h> // pulls in declaration of malloc, free
 #include <vector>
-#include <map>
 
 using namespace std;
 
@@ -12,19 +11,19 @@ using namespace std;
 
 class Objeto3D {
 
-protected:
-	
-	vector< vector<GLfloat> > vertices;
-	//vector<GLuint[3]> lados;
-	//map<int,vector<GLfloat[3]> > triangulos;
-	GLubyte triangulos;
-
 public:
 
+	vector<float> vertices;
+	vector<GLubyte> indices;
+
+public:
 	Objeto3D();
 	void dibujar();
-
-private:
+	void createArray();
+	vector<float> getVertices() { return vertices; };
+	void setVertices(vector<float> verts) { vertices=verts; };
+	vector<GLubyte> getIndices() { return indices; };
+	void setIndices(vector<GLubyte> index) { indices=index; };
 };
 
 #endif
