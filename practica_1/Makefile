@@ -23,7 +23,7 @@ CC = g++
 
 # definicion de objetos
 #
-OBJECTS= src/practica1.o src/escena.o src/ejes.o src/objeto3D.o src/cubo.o
+OBJECTS= src/practica1.o src/escena.o src/ejes.o src/objeto3D.o src/cubo.o src/tetraedro.o
 # orden que sera ejecutada por defecto
 #
 default : $(TARGETS)

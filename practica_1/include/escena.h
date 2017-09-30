@@ -4,6 +4,7 @@
 #include "ejes.h"
 #include "objeto3D.h"
 #include "cubo.h"
+#include "tetraedro.h"
 
 class Escena {
 private:
@@ -12,7 +13,7 @@ private:
 Ejes ejes;
 Objeto3D objeto;
 Cubo cubo;
-
+Tetraedro tetraedro;
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;
