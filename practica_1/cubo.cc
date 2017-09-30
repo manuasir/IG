@@ -20,7 +20,7 @@ Cubo::Cubo(float val){
 void Cubo::createArrayData(){
 
 	Objeto3D::setNumTri(36);
-
+	Objeto3D::mode=GL_POINT;
 	
 
 	std::cout << "Construyendo";
@@ -58,6 +58,11 @@ void Cubo::createArrayData(){
 
 	for(int i=0;i<vertices.size();i+=3){
 		std::cout << "color";
+		colores.push_back(1);
+		colores.push_back(0);
+		colores.push_back(0);
+		colores.push_back(0);
+		/*
 		if(i%2 == 0 ){
 			colores.push_back(0);
 			colores.push_back(1);
@@ -67,7 +72,8 @@ void Cubo::createArrayData(){
 			colores.push_back(0);
 			colores.push_back(1);
 		}
-		colores.push_back(1);
+		*/
+		//colores.push_back(1);
 	}
 
 

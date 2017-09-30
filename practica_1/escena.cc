@@ -53,9 +53,9 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
     std::cout << "Tecla" << Tecla1<< std::endl;
 	GLenum mode;
 	if (toupper(Tecla1)=='Q') return 1;
-	else if (toupper(Tecla1)=='P') {  mode=GL_POINTS;  objeto.setGlEnum(mode); return 0; }
-	else if (toupper(Tecla1)=='L') {  mode=GL_LINE_LOOP;  objeto.setGlEnum(mode); return 0; }
-	else if (toupper(Tecla1)=='T') {  mode=GL_TRIANGLES;  objeto.setGlEnum(mode); return 0; }
+	else if (toupper(Tecla1)=='P') {  mode=GL_POINT;  objeto.setGlEnum(mode); return 0; }
+	else if (toupper(Tecla1)=='L') {  mode=GL_LINE;  objeto.setGlEnum(mode); return 0; }
+	else if (toupper(Tecla1)=='S') {  mode=GL_FILL;  objeto.setGlEnum(mode); return 0; }
 	else return 0;
 }
 
