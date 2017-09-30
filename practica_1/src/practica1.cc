@@ -12,11 +12,9 @@
 #include "stdio.h"
 #include <GL/glut.h>
 #include <ctype.h>
-#include "escena.h"
+#include "../include/escena.h"
 
 Escena *escena;
-
-
 
 void draw_scene(void)  {
 	if (escena!=NULL)	escena->dibujar();

@@ -3,7 +3,7 @@
 #endif
 #include <GL/gl.h>
 #include <GL/glut.h>
-#include "ejes.h"
+#include "../include/ejes.h"
 
 Ejes::Ejes(){
     axisSize = 1000;

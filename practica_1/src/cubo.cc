@@ -1,7 +1,7 @@
 #ifdef _WIN32
 #include <windows.h>
 #endif
-#include <cubo.h>
+#include "../include/cubo.h"
 #include <vector>
 #include <iostream>
 
@@ -20,7 +20,8 @@ Cubo::Cubo(float val){
 void Cubo::createArrayData(){
 
 	Objeto3D::setNumTri(36);
-	Objeto3D::mode=GL_POINT;
+	Objeto3D::mode=GL_POINTS;
+	Objeto3D::modePolygon=GL_POINT;
 	
 
 	std::cout << "Construyendo";
@@ -56,25 +57,7 @@ void Cubo::createArrayData(){
 	vertices.push_back(tam);
 	vertices.push_back(tam);
 
-	for(int i=0;i<vertices.size();i+=3){
-		std::cout << "color";
-		colores.push_back(1);
-		colores.push_back(0);
-		colores.push_back(0);
-		colores.push_back(0);
-		/*
-		if(i%2 == 0 ){
-			colores.push_back(0);
-			colores.push_back(1);
-			colores.push_back(0);
-		}else{
-			colores.push_back(1);
-			colores.push_back(0);
-			colores.push_back(1);
-		}
-		*/
-		//colores.push_back(1);
-	}
+	Objeto3D::colorear();
 
 
 	indices.push_back(0);

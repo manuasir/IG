@@ -16,12 +16,16 @@ public:
 	vector<GLubyte> indices;
 	int num_tri;
 	GLenum mode;
+	GLenum modePolygon;
 
 public:
 	Objeto3D();
 	void dibujar();
 	void setNumTri(int num){ num_tri=num; }
 	void setGlEnum(GLenum elem){ mode=elem; }
+	void setGlEnumPolygon(GLenum elem){ modePolygon=elem; }
+	void colorear();
+	void colorearAjedrez();
 };
 
 #endif
