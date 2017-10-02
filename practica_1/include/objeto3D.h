@@ -18,15 +18,9 @@ public:
 	vector<float> colores;
 	vector<GLubyte> indices;
 
-	vector<GLubyte> indicesPares;
-	vector<float> coloresPares;
-	vector<float> coloresImpares;
-
-	vector<GLubyte> indicesImpares;
 	int num_tri;
 	GLenum mode;
 	GLenum modePolygon;
-	bool chess;
 
 public:
 	Objeto3D();
@@ -35,8 +29,6 @@ public:
 	void setGlEnum(GLenum elem){ mode=elem; }
 	void setGlEnumPolygon(GLenum elem){ modePolygon=elem; }
 	void colorear();
-	void colorearAjedrez();
-	void setChess(bool val){ chess=val; }
 };
 
 #endif

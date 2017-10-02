@@ -13,8 +13,6 @@ Objeto3D::Objeto3D(){
 
 void Objeto3D::colorear(){
 	colores.clear();
-	coloresPares.clear();
-	coloresImpares.clear();
 	for(int i=0;i<indices.size();i++){
 		std::cout << "color";
 		colores.push_back(0);
