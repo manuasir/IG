@@ -13,12 +13,121 @@ Objeto3D::Objeto3D(){
 
 void Objeto3D::colorear(){
 	colores.clear();
+	coloresPares.clear();
+	coloresImpares.clear();
 	for(int i=0;i<indices.size();i++){
 		std::cout << "color";
 		colores.push_back(0);
 		colores.push_back(0);
 		colores.push_back(1);
 	}
+}
+
+void Objeto3D::colorearChess(){
+	colores.clear();
+	coloresPares.clear();
+	coloresImpares.clear();
+
+	for(int i=0;i<vertices.size();i+=9){
+		if(i%2 == 0){
+			std::cout << "color par";
+			indicesPares.push_back(indices[i]);
+			indicesPares.push_back(indices[i+1]);
+			indicesPares.push_back(indices[i+2]);
+			indicesPares.push_back(indices[i+3]);
+			indicesPares.push_back(indices[i+4]);
+			indicesPares.push_back(indices[i+5]);
+			indicesPares.push_back(indices[i+6]);
+			indicesPares.push_back(indices[i+7]);
+			indicesPares.push_back(indices[i+8]);
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+
+
+			coloresPares.push_back(0);
+			coloresPares.push_back(0);
+			coloresPares.push_back(1);
+			
+
+		}
+		else{
+
+			std::cout << "color impar";
+			indicesImpares.push_back(indices[i]);
+			indicesImpares.push_back(indices[i+1]);
+			indicesImpares.push_back(indices[i+2]);
+			indicesImpares.push_back(indices[i+3]);
+			indicesImpares.push_back(indices[i+4]);
+			indicesImpares.push_back(indices[i+5]);
+			indicesImpares.push_back(indices[i+6]);
+			indicesImpares.push_back(indices[i+7]);
+			indicesImpares.push_back(indices[i+8]);
+
+
+			coloresImpares.push_back(1);
+			coloresImpares.push_back(0);
+			coloresImpares.push_back(0);
+
+			coloresImpares.push_back(1);
+			coloresImpares.push_back(0);
+			coloresImpares.push_back(0);
+
+			coloresImpares.push_back(1);
+			coloresImpares.push_back(0);
+			coloresImpares.push_back(0);
+
+			coloresImpares.push_back(1);
+			coloresImpares.push_back(0);
+			coloresImpares.push_back(0);
+
+			coloresImpares.push_back(1);
+			coloresImpares.push_back(0);
+			coloresImpares.push_back(0);
+
+			coloresImpares.push_back(1);
+			coloresImpares.push_back(0);
+			coloresImpares.push_back(0);
+
+			coloresImpares.push_back(1);
+			coloresImpares.push_back(0);
+			coloresImpares.push_back(0);
+
+			coloresImpares.push_back(1);
+			coloresImpares.push_back(0);
+			coloresImpares.push_back(0);
+
+		}
+	}	
 }
 
 void Objeto3D::dibujar(){
@@ -29,9 +138,20 @@ void Objeto3D::dibujar(){
 	glVertexPointer(3, GL_FLOAT, 0, vertices.data() );
 	glPolygonMode(GL_FRONT_AND_BACK,modePolygon);
 	glPointSize(5);
-	
-	glColorPointer( 3, GL_FLOAT, 0, colores.data());
-	glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indices.data() ) ;	
-	//glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indices.data() ) ;	
+	glCullFace(GL_FRONT_AND_BACK);
+	glEnable(1);
+
+
+	if(chess){
+		glColorPointer( 3, GL_FLOAT, 0, coloresPares.data());
+		glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indicesPares.data() ) ;	
+		glColorPointer( 3, GL_FLOAT, 0, coloresImpares.data());
+		glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indicesImpares.data() ) ;	
+
+	}else{
+		glColorPointer( 3, GL_FLOAT, 0, colores.data());
+		glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indices.data() ) ;	
+	//glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indices.data() ) ;
+	}	
 }
 
