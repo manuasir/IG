@@ -38,8 +38,6 @@ void Escena::draw_objects() {
 	objeto.dibujar();
 }
 
-
-
 void Escena::dibujar() {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); // Limpiar la pantalla
@@ -54,11 +52,12 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	GLenum mode;
 	GLenum modePolygon;
 	if (toupper(Tecla1)=='Q') return 1;
-	else if (toupper(Tecla1)=='P') {  mode=GL_POINTS; modePolygon=GL_POINT; objeto.colorear(); objeto.setGlEnum(mode); objeto.setGlEnumPolygon(modePolygon); return 0; }
-	else if (toupper(Tecla1)=='L') {  mode=GL_TRIANGLES; modePolygon=GL_LINE;  objeto.setGlEnum(mode);  objeto.setGlEnumPolygon(modePolygon); return 0; }
-	else if (toupper(Tecla1)=='S') {  mode=GL_TRIANGLES; modePolygon=GL_FILL;  objeto.setGlEnum(mode);  objeto.setGlEnumPolygon(modePolygon); return 0; }
-	else if (toupper(Tecla1)=='A') {  objeto.colorearAjedrez(); return 0; }
+	else if (toupper(Tecla1)=='P') {   mode=GL_POINTS; modePolygon=GL_POINT; objeto.colorear(); objeto.setGlEnum(mode); objeto.setGlEnumPolygon(modePolygon); return 0; }
+	else if (toupper(Tecla1)=='L') {   mode=GL_TRIANGLES; modePolygon=GL_LINE;  objeto.colorear(); objeto.setGlEnum(mode);  objeto.setGlEnumPolygon(modePolygon); return 0; }
+	else if (toupper(Tecla1)=='S') {   mode=GL_TRIANGLES; modePolygon=GL_FILL;  objeto.colorear(); objeto.setGlEnum(mode);  objeto.setGlEnumPolygon(modePolygon); return 0; }
 	else if (toupper(Tecla1)=='1') {  std::cout << "pintando" << endl; objeto = cubo; return 0; }
+	else if (toupper(Tecla1)=='2') {  std::cout << "tetraedro" << endl; objeto = tetraedro; return 0; }
+	else if (toupper(Tecla1)=='3') {  std::cout << "piramide" << endl; objeto = piramide; return 0; }
 	//else if (toupper(Tecla1)=='2') {  std::cout << "TETRA" << endl; objeto = tetraedro; return 0; }
 	else return 0;
 }

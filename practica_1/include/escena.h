@@ -5,6 +5,7 @@
 #include "objeto3D.h"
 #include "cubo.h"
 #include "tetraedro.h"
+#include "piramide.h"
 
 class Escena {
 private:
@@ -14,6 +15,7 @@ Ejes ejes;
 Objeto3D objeto;
 Cubo cubo;
 Tetraedro tetraedro;
+Piramide piramide;
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;

@@ -1,17 +1,17 @@
 // Manuel Jiménez Bernal
 
 
-#ifndef _TETRAEDRO_H
-#define _TETRAEDRO_H
+#ifndef _PIRAMIDE_H
+#define _PIRAMIDE_H
 #include "objeto3D.h"
 
-class Tetraedro : public Objeto3D{
+class Piramide : public Objeto3D{
 
 private:
 	float tam;
 public:
-	Tetraedro();
-	Tetraedro(float val);
+	Piramide();
+	Piramide(float val);
 	void createArrayData();
 	void setTam(float data){ tam = data; };
 };

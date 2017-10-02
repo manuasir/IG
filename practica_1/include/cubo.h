@@ -1,3 +1,6 @@
+// Manuel Jiménez Bernal
+
+
 #ifndef _CUBO_H
 #define _CUBO_H
 #include "objeto3D.h"

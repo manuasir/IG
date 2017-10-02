@@ -1,3 +1,6 @@
+// Manuel Jiménez Bernal
+
+
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -23,7 +26,6 @@ void Cubo::createArrayData(){
 	Objeto3D::mode=GL_POINTS;
 	Objeto3D::modePolygon=GL_POINT;
 	
-
 	std::cout << "Construyendo";
 	vertices.push_back(0);
 	vertices.push_back(0);
@@ -58,7 +60,6 @@ void Cubo::createArrayData(){
 	vertices.push_back(tam);
 
 	Objeto3D::colorear();
-
 
 	indices.push_back(0);
 	indices.push_back(1);
