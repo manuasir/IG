@@ -26,21 +26,21 @@ void Tetraedro::createArrayData(){
 	Objeto3D::mode=GL_POINTS;
 	Objeto3D::modePolygon=GL_POINT;
 
-	vertices.push_back(0);
+	vertices.push_back(-tam/2);
 	vertices.push_back(0);
 	vertices.push_back(0);
 
-	vertices.push_back(tam);
+	vertices.push_back(tam/2);
 	vertices.push_back(0);
-	vertices.push_back(tam);
-
-	vertices.push_back(tam);
-	vertices.push_back(tam);
 	vertices.push_back(0);
 
 	vertices.push_back(0);
+	vertices.push_back(0);
 	vertices.push_back(tam);
+
+	vertices.push_back(0);
 	vertices.push_back(tam);
+	vertices.push_back(tam/2);
 
 
 
@@ -48,21 +48,21 @@ void Tetraedro::createArrayData(){
 	Objeto3D::colorear();
 
 
+	indices.push_back(0);
+	indices.push_back(1);
+	indices.push_back(2);
+
 	indices.push_back(1);
 	indices.push_back(2);
 	indices.push_back(3);
 
-	indices.push_back(1);
 	indices.push_back(2);
 	indices.push_back(0);
-
-	indices.push_back(2);
 	indices.push_back(3);
+
 	indices.push_back(0);
-
-	indices.push_back(3);
 	indices.push_back(1);
-	indices.push_back(0);
+	indices.push_back(3);
 
 }
 
