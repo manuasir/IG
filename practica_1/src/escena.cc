@@ -14,7 +14,6 @@ Escena::Escena(){
     Observer_distance = 4*Front_plane;
     Observer_angle_x = Observer_angle_y=0;
     ejes.changeAxisSize(5000);
-    cubo.setTam(50);
     objeto = cubo;
 }
 
