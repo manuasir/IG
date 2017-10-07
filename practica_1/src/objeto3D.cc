@@ -11,12 +11,18 @@ Objeto3D::Objeto3D(){
 
 }
 
-void Objeto3D::colorear(){
+void Objeto3D::clear(){
 	// vaciar arrays
 	colores.clear();
 	coloresPares.clear();
 	coloresImpares.clear();
+	indices.clear();
+	indicesPares.clear();
+	indicesImpares.clear();
+	vertices.clear();
+}
 
+void Objeto3D::colorear(){
 	for(int i=0;i<indices.size();i++){
 		colores.push_back(0);
 		colores.push_back(0);
@@ -25,12 +31,6 @@ void Objeto3D::colorear(){
 }
 
 void Objeto3D::colorearChess(){
-
-	// vaciar arrays
-	colores.clear();
-	coloresPares.clear();
-	coloresImpares.clear();
-
 	for(int i=0;i<indices.size();i+=3){
 		if(i%2 == 0){
 			indicesPares.push_back(indices[i]);
@@ -51,11 +51,9 @@ void Objeto3D::colorearChess(){
 
 		}
 		else{
-
 			indicesImpares.push_back(indices[i]);
 			indicesImpares.push_back(indices[i+1]);
 			indicesImpares.push_back(indices[i+2]);
-
 
 			coloresImpares.push_back(1);
 			coloresImpares.push_back(0);

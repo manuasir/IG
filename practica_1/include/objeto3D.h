@@ -36,6 +36,7 @@ public:
 	void colorear();
 	void colorearChess();
 	void setChess(bool val){ chess=val; }
+	void clear();
 };
 
 #endif

@@ -46,19 +46,17 @@ void Escena::dibujar() {
 }
 
 int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
-
-    std::cout << "Tecla" << Tecla1<< std::endl;
+    //std::cout << "Tecla" << Tecla1<< std::endl;
 	GLenum mode;
 	GLenum modePolygon;
 	if (toupper(Tecla1)=='Q') return 1;
-	else if (toupper(Tecla1)=='P') {   objeto.setChess(false); mode=GL_POINTS; modePolygon=GL_POINT; objeto.colorear(); objeto.setGlEnum(mode); objeto.setGlEnumPolygon(modePolygon); return 0; }
-	else if (toupper(Tecla1)=='L') {   objeto.setChess(false); mode=GL_TRIANGLES; modePolygon=GL_LINE;  objeto.colorear(); objeto.setGlEnum(mode);  objeto.setGlEnumPolygon(modePolygon); return 0; }
-	else if (toupper(Tecla1)=='S') {   objeto.setChess(false); mode=GL_TRIANGLES; modePolygon=GL_FILL;  objeto.colorear(); objeto.setGlEnum(mode);  objeto.setGlEnumPolygon(modePolygon); return 0; }
-	else if (toupper(Tecla1)=='A') {   objeto.setChess(true); mode=GL_TRIANGLES; modePolygon=GL_FILL;  objeto.colorearChess(); objeto.setGlEnum(mode);  objeto.setGlEnumPolygon(modePolygon); return 0; }
-	else if (toupper(Tecla1)=='1') {   objeto.setChess(false);std::cout << "pintando" << endl; objeto = cubo; return 0; }
-	else if (toupper(Tecla1)=='2') {   objeto.setChess(false);std::cout << "tetraedro" << endl; objeto = tetraedro; return 0; }
-	else if (toupper(Tecla1)=='3') {   objeto.setChess(false);std::cout << "piramide" << endl; objeto = piramide; return 0; }
-	//else if (toupper(Tecla1)=='2') {  std::cout << "TETRA" << endl; objeto = tetraedro; return 0; }
+	else if (toupper(Tecla1)=='P') {   objeto.setChess(false); objeto.colorear(); objeto.setGlEnum(GL_POINTS); objeto.setGlEnumPolygon(GL_POINT); return 0; }
+	else if (toupper(Tecla1)=='L') {   objeto.setChess(false); objeto.colorear(); objeto.setGlEnum(GL_TRIANGLES);  objeto.setGlEnumPolygon(GL_LINE); return 0; }
+	else if (toupper(Tecla1)=='S') {   objeto.setChess(false); objeto.colorear(); objeto.setGlEnum(GL_TRIANGLES);  objeto.setGlEnumPolygon(GL_FILL); return 0; }
+	else if (toupper(Tecla1)=='A') {   objeto.setChess(true); objeto.colorearChess(); objeto.setGlEnum(GL_TRIANGLES);  objeto.setGlEnumPolygon(GL_FILL); return 0; }
+	else if (toupper(Tecla1)=='1') {   objeto.clear(); objeto = cubo; return 0; }
+	else if (toupper(Tecla1)=='2') {   objeto.clear(); objeto = tetraedro; return 0; }
+	else if (toupper(Tecla1)=='3') {   objeto.clear(); objeto = piramide; return 0; }
 	else return 0;
 }
 
@@ -71,8 +69,6 @@ switch (Tecla1){
 	case GLUT_KEY_PAGE_UP:Observer_distance*=1.2;break;
 	case GLUT_KEY_PAGE_DOWN:Observer_distance/=1.2;break;
 	}
-
-	//std::cout << Observer_distance << std::endl;
 }
 
 
