@@ -6,7 +6,7 @@
 // Gnu Public Licence
 //******************************************************************************
 
-#include "file_ply_stl.h"
+#include "../include/file_ply_stl.h"
 
 using namespace std;
 

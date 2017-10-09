@@ -37,8 +37,6 @@ public:
 	void colorearChess();
 	void setChess(bool val){ chess=val; }
 	void clear();
-	vector<float> getVertices(){ return vertices; }
-	vector<float> getIndices(){ return indices; }
 };
 
 #endif

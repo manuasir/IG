@@ -1,12 +1,14 @@
 #ifndef _ESCENA_H
 #define _ESCENA_H
 
+#include <iostream>
 #include "ejes.h"
 #include "objeto3D.h"
 #include "cubo.h"
 #include "tetraedro.h"
 #include "piramide.h"
 #include "file_ply_stl.h"
+#include "vertex.h"
 
 class Escena {
 private:

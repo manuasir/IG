@@ -8,8 +8,8 @@ TARGETS= practica2
 # encontrar ficheros para incluir mediante la opcion -I
 # la opcion -g sirve para permitir la depuración
 #
-CFLAGS=    -g -I/usr/include -I.
-CXXFLAGS=  -g -I/usr/include -I.
+CFLAGS=    -std=c++11 -g -DXWINDOWS -DSHM -I/usr/include -I.
+CXXFLAGS=  -std=c++11 -g -DXWINDOWS -DSHM -I/usr/include -I.
 
 # banderas pra el enlazador
 # Se indica directorios donde encontrar las funciontecas con -L. Usando -l seguido del
@@ -19,7 +19,7 @@ LDFLAGS=  -lGLU -lGL -lglut
 
 # definicion del compilador
 #
-CC = g++
+CC = g++ 
 
 # definicion de objetos
 #
