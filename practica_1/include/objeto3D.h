@@ -1,6 +1,5 @@
 // Manuel Jiménez Bernal
 
-
 #ifndef _OBJETO3D_H
 #define _OBJETO3D_H
 #include <GL/gl.h>

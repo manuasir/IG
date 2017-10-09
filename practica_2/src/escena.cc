@@ -54,12 +54,6 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	else if (toupper(Tecla1)=='L') {   objeto.setChess(false); objeto.colorear(); objeto.setGlEnum(GL_TRIANGLES);  objeto.setGlEnumPolygon(GL_LINE); return 0; }
 	else if (toupper(Tecla1)=='S') {   objeto.setChess(false); objeto.colorear(); objeto.setGlEnum(GL_TRIANGLES);  objeto.setGlEnumPolygon(GL_FILL); return 0; }
 	else if (toupper(Tecla1)=='A') {   objeto.setChess(true); objeto.colorearChess(); objeto.setGlEnum(GL_TRIANGLES);  objeto.setGlEnumPolygon(GL_FILL); return 0; }
-	else if (toupper(Tecla1)=='R') {   objeto.setChess(false); _file_ply File_ply;
-
-  if (File_ply.open("beethoven.ply")){
-    File_ply.read(objeto.getVertices(),objeto.getIndices());
-    std::cout << "File read correctly" << std::endl;
-  } objeto.colorear(); objeto.setGlEnum(GL_TRIANGLES);  objeto.setGlEnumPolygon(GL_LINE); return 0; }
 	else if (toupper(Tecla1)=='1') {   objeto.clear(); objeto = cubo; return 0; }
 	else if (toupper(Tecla1)=='2') {   objeto.clear(); objeto = tetraedro; return 0; }
 	else if (toupper(Tecla1)=='3') {   objeto.clear(); objeto = piramide; return 0; }
