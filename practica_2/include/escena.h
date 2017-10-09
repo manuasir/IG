@@ -19,6 +19,7 @@ Objeto3D objeto;
 Cubo cubo;
 Tetraedro tetraedro;
 Piramide piramide;
+_file_ply File_ply;
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;

@@ -80,8 +80,6 @@ void Objeto3D::dibujar(){
 	glPointSize(5);
 
 	if(chess){
-        glEnable(GL_CULL_FACE);
-		glCullFace(GL_BACK);
 		glColorPointer( 3, GL_FLOAT, 0, coloresPares.data());
 		glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indicesPares.data() ) ;	
 		glColorPointer( 3, GL_FLOAT, 0, coloresImpares.data());
