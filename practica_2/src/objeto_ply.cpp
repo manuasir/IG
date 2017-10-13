@@ -15,30 +15,31 @@ ObjetoPly::ObjetoPly(){
 }
 
 void ObjetoPly::leerFichero(){
-  if (File_ply.open("/home/anon/FAC/IG/practica_2/src/big_dodge.ply")){
+  if (File_ply.open("/home/anon/FAC/IG/practica_2/src/beethoven.ply")){
   	vector<_vertex3f> auxvertices;
 	vector<_vertex3i> auxindices;
 
     File_ply.read(auxvertices,auxindices);
     cout << "auxverftices" << auxvertices.size() << endl;
     for(int i=0;i<auxvertices.size();i++){
+    	//cout << "vertice: " << 15*auxvertices[i].x << endl;
+    	//cout << "vertice: " << 15*auxvertices[i].y << endl;
+    	//cout << "vertice: " << 15*auxvertices[i].z << endl;
     	_vertex3f aux;
-    	aux.x = auxvertices[i].x*15;
-    	aux.y = auxvertices[i].y*15;
-    	aux.z = auxvertices[i].z*15;
+    	aux.x = auxvertices[i].x;
+    	aux.y = auxvertices[i].y;
+    	aux.z = auxvertices[i].z;
     	Objeto3D::setVertice(aux);
     }
     for(int i=0;i<auxindices.size();i++){
+
+    	//cout << "indice: " << auxindices[i]._0 << endl;
+    	//cout << "indice: " << auxindices[i]._1 << endl;
+    	//cout << "indice: " << auxindices[i]._2 << endl;
     	_vertex3i aux;
-    	aux.x = auxindices[i].x;
-	    cout << "X VALE " << aux.x << endl;
-
-    	aux.y = auxvertices[i].y;
-    		    cout << "Y VALE " << aux.y << endl;
-
-
-    	aux.z = auxvertices[i].z;
-    		    cout << "Z VALE " << aux.z << endl;
+    	aux._0 = auxindices[i]._0;
+    	aux._1 = auxvertices[i]._1;
+    	aux._2 = auxvertices[i]._2;
 
     	Objeto3D::setIndice(aux);
     }

@@ -16,9 +16,9 @@ class Objeto3D {
 public:
 
 	vector<_vertex3f> vertices;
-	vector<float> colores;
-	vector<float> coloresPares;
-	vector<float> coloresImpares;
+	vector<_vertex3f> colores;
+	vector<_vertex3f> coloresPares;
+	vector<_vertex3f> coloresImpares;
 	vector<_vertex3i> indices;
 	vector<_vertex3i> indicesPares;
 	vector<_vertex3i> indicesImpares;

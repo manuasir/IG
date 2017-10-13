@@ -23,51 +23,24 @@ void Objeto3D::clear(){
 }
 
 void Objeto3D::colorear(){
-	for(int i=0;i<indices.size();i++){
-		colores.push_back(0);
-		colores.push_back(0);
-		colores.push_back(1);
+	for(int i=0;i<vertices.size();i++){
+		colores.push_back(_vertex3f(0,1,0));
 	}
 }
 
 void Objeto3D::colorearChess(){
-	std::cout << "caras " << indices.size() << endl;
-	for(int i=0;i<indices.size();i+=3){
+	for(int i=0;i<indices.size();i++){
 		if(i%2 == 0){
 			indicesPares.push_back(indices[i]);
-			indicesPares.push_back(indices[i+1]);
-			indicesPares.push_back(indices[i+2]);
 
-			coloresPares.push_back(0);
-			coloresPares.push_back(0);
-			coloresPares.push_back(1);
-
-			coloresPares.push_back(0);
-			coloresPares.push_back(0);
-			coloresPares.push_back(1);
-
-			coloresPares.push_back(0);
-			coloresPares.push_back(0);
-			coloresPares.push_back(1);
-
-		}
-		else{
+		}else{
 			indicesImpares.push_back(indices[i]);
-			indicesImpares.push_back(indices[i+1]);
-			indicesImpares.push_back(indices[i+2]);
-
-			coloresImpares.push_back(1);
-			coloresImpares.push_back(0);
-			coloresImpares.push_back(0);
-
-			coloresImpares.push_back(1);
-			coloresImpares.push_back(0);
-			coloresImpares.push_back(0);
-
-			coloresImpares.push_back(1);
-			coloresImpares.push_back(0);
-			coloresImpares.push_back(0);
 		}
+	}
+
+	for(int i=0;i<vertices.size();i++){
+		coloresPares.push_back(_vertex3f(1,0,0));
+		coloresImpares.push_back(_vertex3f(0,0,1));
 	}	
 }
 
@@ -77,21 +50,19 @@ void Objeto3D::dibujar(){
 	glEnableClientState( GL_COLOR_ARRAY );
 	glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);
 	glVertexPointer(3, GL_FLOAT, 0, vertices.data() );
-			cout << "vertices vale" << vertices.size() << endl;
-
 	glPolygonMode(GL_FRONT_AND_BACK,modePolygon);
 	glPointSize(5);
 
 	if(chess){
 		glColorPointer( 3, GL_FLOAT, 0, coloresPares.data());
-		glDrawElements( mode, indicesPares.size() ,GL_UNSIGNED_BYTE, indicesPares.data() ) ;	
+		glDrawElements( mode, indicesPares.size()*3 ,GL_UNSIGNED_INT, indicesPares.data() ) ;	
 		glColorPointer( 3, GL_FLOAT, 0, coloresImpares.data());
-		glDrawElements( mode, indicesImpares.size() ,GL_UNSIGNED_BYTE, indicesImpares.data() ) ;	
+		glDrawElements( mode, indicesImpares.size()*3 ,GL_UNSIGNED_INT, indicesImpares.data() ) ;	
 
 	}else{
+		cout << "AJEDREZ NO ACTIVADO" << vertices.size() << endl;
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
-		cout << "indice vale" << indices.size() << endl;
-		glDrawElements( GL_TRIANGLES, indices.size()/3 ,GL_UNSIGNED_BYTE, indices.data() ) ;	
+		glDrawElements( mode, indices.size()*3 ,GL_UNSIGNED_INT, indices.data() ) ;	
 	}	
 }
 
