@@ -14,8 +14,9 @@ Escena::Escena(){
     Observer_distance = 4*Front_plane;
     Observer_angle_x = Observer_angle_y=0;
     ejes.changeAxisSize(5000);
-    objeto = cubo;
+    //objeto = cubo;
     objetoPly.leerFichero();
+    objeto = objetoPly;
 }
 
 void Escena::inicializar(int UI_window_width,int UI_window_height) {
@@ -58,6 +59,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	else if (toupper(Tecla1)=='1') {   objeto.clear(); objeto = cubo; return 0; }
 	else if (toupper(Tecla1)=='2') {   objeto.clear(); objeto = tetraedro; return 0; }
 	else if (toupper(Tecla1)=='3') {   objeto.clear(); objeto = piramide; return 0; }
+	else if (toupper(Tecla1)=='4') {   objeto.setChess(false); objeto.clear(); objeto = piramide; return 0; }
 	else return 0;
 }
 

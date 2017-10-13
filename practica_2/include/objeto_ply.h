@@ -10,7 +10,7 @@
 
 class ObjetoPly : public Objeto3D
 {
-
+private:
 _file_ply File_ply;
 public:
 ObjetoPly();

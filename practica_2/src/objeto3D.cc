@@ -77,6 +77,8 @@ void Objeto3D::dibujar(){
 	glEnableClientState( GL_COLOR_ARRAY );
 	glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);
 	glVertexPointer(3, GL_FLOAT, 0, vertices.data() );
+			cout << "vertices vale" << vertices.size() << endl;
+
 	glPolygonMode(GL_FRONT_AND_BACK,modePolygon);
 	glPointSize(5);
 
@@ -88,7 +90,8 @@ void Objeto3D::dibujar(){
 
 	}else{
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
-		glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indices.data() ) ;	
+		cout << "indice vale" << indices.size() << endl;
+		glDrawElements( GL_TRIANGLES, indices.size()/3 ,GL_UNSIGNED_BYTE, indices.data() ) ;	
 	}	
 }
 
