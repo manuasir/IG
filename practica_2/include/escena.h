@@ -7,8 +7,7 @@
 #include "cubo.h"
 #include "tetraedro.h"
 #include "piramide.h"
-#include "file_ply_stl.h"
-#include "vertex.h"
+#include "objeto_ply.h"
 
 class Escena {
 private:
@@ -19,7 +18,7 @@ Objeto3D objeto;
 Cubo cubo;
 Tetraedro tetraedro;
 Piramide piramide;
-_file_ply File_ply;
+ObjetoPly objetoPly;
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;
@@ -37,7 +36,6 @@ private:
 //Transformación de cámara
 	void change_projection();
 	void change_observer();
-
 
 public:
     Escena();

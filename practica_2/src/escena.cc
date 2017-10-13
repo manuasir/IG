@@ -15,6 +15,7 @@ Escena::Escena(){
     Observer_angle_x = Observer_angle_y=0;
     ejes.changeAxisSize(5000);
     objeto = cubo;
+    objetoPly.leerFichero();
 }
 
 void Escena::inicializar(int UI_window_width,int UI_window_height) {

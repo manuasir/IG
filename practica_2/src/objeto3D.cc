@@ -31,6 +31,7 @@ void Objeto3D::colorear(){
 }
 
 void Objeto3D::colorearChess(){
+	std::cout << "caras " << indices.size() << endl;
 	for(int i=0;i<indices.size();i+=3){
 		if(i%2 == 0){
 			indicesPares.push_back(indices[i]);
@@ -81,9 +82,9 @@ void Objeto3D::dibujar(){
 
 	if(chess){
 		glColorPointer( 3, GL_FLOAT, 0, coloresPares.data());
-		glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indicesPares.data() ) ;	
+		glDrawElements( mode, indicesPares.size() ,GL_UNSIGNED_BYTE, indicesPares.data() ) ;	
 		glColorPointer( 3, GL_FLOAT, 0, coloresImpares.data());
-		glDrawElements( mode, num_tri ,GL_UNSIGNED_BYTE, indicesImpares.data() ) ;	
+		glDrawElements( mode, indicesImpares.size() ,GL_UNSIGNED_BYTE, indicesImpares.data() ) ;	
 
 	}else{
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
