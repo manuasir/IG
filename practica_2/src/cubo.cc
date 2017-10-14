@@ -24,14 +24,14 @@ void Cubo::createArrayData(){
 
 	Objeto3D::setNumTri(36);
 
-	vertices.push_back(_vertex3f(50.0f,50.0f,50.0f));				//0
-	vertices.push_back(_vertex3f(50.0f,50.0f,-50.0f));				//1
-	vertices.push_back(_vertex3f(50.0f,-50.0f,50.0f));				//2
-	vertices.push_back(_vertex3f(-50.0f,50.0f,50.0f));				//3
-	vertices.push_back(_vertex3f(50.0f,-50.0f,-50.0f));			//4
-	vertices.push_back(_vertex3f(-50.0f,50.0f,-50.0f));			//5
-	vertices.push_back(_vertex3f(-50.0f,-50.0f,50.0f));			//6
-	vertices.push_back(_vertex3f(-50.0f,-50.0f,-50.0f));			//7
+	vertices.push_back(_vertex3f(tam,tam,tam));				//0
+	vertices.push_back(_vertex3f(tam,tam,-tam));				//1
+	vertices.push_back(_vertex3f(tam,-tam,tam));				//2
+	vertices.push_back(_vertex3f(-tam,tam,tam));				//3
+	vertices.push_back(_vertex3f(tam,-tam,-tam));			//4
+	vertices.push_back(_vertex3f(-tam,tam,-tam));			//5
+	vertices.push_back(_vertex3f(-tam,-tam,tam));			//6
+	vertices.push_back(_vertex3f(-tam,-tam,-tam));			//7
 
 	indices.push_back(_vertex3i(0,3,6));			//Primera cara
 	indices.push_back(_vertex3i(0,6,2));			//Primera cara
