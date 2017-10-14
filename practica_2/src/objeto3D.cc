@@ -24,7 +24,7 @@ void Objeto3D::clear(){
 
 void Objeto3D::colorear(){
 	for(int i=0;i<vertices.size();i++){
-		colores.push_back(_vertex3f(0,1,0));
+		colores.push_back(_vertex3f(0,0,0));
 	}
 }
 
@@ -55,14 +55,14 @@ void Objeto3D::dibujar(){
 
 	if(chess){
 		glColorPointer( 3, GL_FLOAT, 0, coloresPares.data());
-		glDrawElements( mode, indicesPares.size()*3 ,GL_UNSIGNED_INT, indicesPares.data() ) ;	
+		glDrawElements( GL_TRIANGLES, indicesPares.size()*3 ,GL_UNSIGNED_INT, indicesPares.data() ) ;	
 		glColorPointer( 3, GL_FLOAT, 0, coloresImpares.data());
-		glDrawElements( mode, indicesImpares.size()*3 ,GL_UNSIGNED_INT, indicesImpares.data() ) ;	
+		glDrawElements( GL_TRIANGLES, indicesImpares.size()*3 ,GL_UNSIGNED_INT, indicesImpares.data() ) ;	
 
 	}else{
-		cout << "AJEDREZ NO ACTIVADO" << vertices.size() << endl;
+		cout << "Vertices cargados: " << vertices.size() << endl;
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
-		glDrawElements( mode, indices.size()*3 ,GL_UNSIGNED_INT, indices.data() ) ;	
+		glDrawElements( GL_TRIANGLES, indices.size()*3 ,GL_UNSIGNED_INT, indices.data() ) ;	
 	}	
 }
 

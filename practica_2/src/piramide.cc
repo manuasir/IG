@@ -22,54 +22,20 @@ Piramide::Piramide(float val){
 void Piramide::createArrayData(){
 
 	Objeto3D::setNumTri(15);
-	Objeto3D::mode=GL_POINTS;
-	Objeto3D::modePolygon=GL_POINT;
 
-	vertices.push_back(-tam/2);
-	vertices.push_back(0);
-	vertices.push_back(0);
+	vertices.push_back(_vertex3f(-tam/2,0,0));
+	vertices.push_back(_vertex3f(tam/2,0,0));
+	vertices.push_back(_vertex3f(-tam/2,0,tam));
+	vertices.push_back(_vertex3f(tam/2,0,tam));
+	vertices.push_back(_vertex3f(0,tam,tam/2));
+	indices.push_back(_vertex3i(1,2,0));
+	indices.push_back(_vertex3i(3,2,1));
+	indices.push_back(_vertex3i(1,4,0));
+	indices.push_back(_vertex3i(3,4,1));
+	indices.push_back(_vertex3i(2,4,3));
+	indices.push_back(_vertex3i(0,4,2));
 
-	vertices.push_back(tam/2);
-	vertices.push_back(0);
-	vertices.push_back(0);
-
-	vertices.push_back(-tam/2);
-	vertices.push_back(0);
-	vertices.push_back(tam);
-
-	vertices.push_back(tam/2);
-	vertices.push_back(0);
-	vertices.push_back(tam);
-
-	vertices.push_back(0);
-	vertices.push_back(tam);
-	vertices.push_back(tam/2);
-
-	indices.push_back(1);
-	indices.push_back(2);
-	indices.push_back(0);
-
-	indices.push_back(3);
-	indices.push_back(2);
-	indices.push_back(1);
-
-	indices.push_back(1);
-	indices.push_back(4);
-	indices.push_back(0);
-
-	indices.push_back(3);
-	indices.push_back(4);
-	indices.push_back(1);
-
-	indices.push_back(2);
-	indices.push_back(4);
-	indices.push_back(3);
-
-	indices.push_back(0);
-	indices.push_back(4);
-	indices.push_back(2);
-
-	//Objeto3D::colorear();
+	Objeto3D::colorear();
 
 
 }
