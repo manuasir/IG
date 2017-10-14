@@ -38,12 +38,10 @@ public:
 	void colorearChess();
 	void setChess(bool val){ chess=val; }
 	void clear();
-	vector<_vertex3i> & getIndices(){ cout << "devolviendo indices..."; return indices; }
+	vector<_vertex3i> & getIndices(){ return indices; }
 	vector<_vertex3f> & getVertices(){ return vertices; }
 	void setVertices(vector<_vertex3f> vec){ vertices = vec; }
 	void setIndices(vector<_vertex3i> vec){ indices = vec; }
-	void setVertice(_vertex3f element){ vertices.push_back(element); }
-	void setIndice(_vertex3i element){ indices.push_back(element); }
 
 };
 

@@ -7,10 +7,16 @@
 #include <iostream>
 #include "../include/objeto3D.h"
 
+/**
+* Constructores
+*/
 Objeto3D::Objeto3D(){
 
 }
 
+/**
+* Limpia todos los vectores
+*/
 void Objeto3D::clear(){
 	// vaciar arrays
 	colores.clear();
@@ -22,12 +28,18 @@ void Objeto3D::clear(){
 	vertices.clear();
 }
 
+/**
+* Rellena el vector de colores
+*/
 void Objeto3D::colorear(){
 	for(int i=0;i<vertices.size();i++){
 		colores.push_back(_vertex3f(0,0,0));
 	}
 }
 
+/**
+* Rellena el vector de colores en modo ajedrez
+*/
 void Objeto3D::colorearChess(){
 	for(int i=0;i<indices.size();i++){
 		if(i%2 == 0){
@@ -44,6 +56,9 @@ void Objeto3D::colorearChess(){
 	}	
 }
 
+/**
+* Esta función se llama 30 veces por segundo (30 FPS)
+*/
 void Objeto3D::dibujar(){
 	
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -60,7 +75,6 @@ void Objeto3D::dibujar(){
 		glDrawElements( GL_TRIANGLES, indicesImpares.size()*3 ,GL_UNSIGNED_INT, indicesImpares.data() ) ;	
 
 	}else{
-		cout << "Vertices cargados: " << vertices.size() << endl;
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
 		glDrawElements( GL_TRIANGLES, indices.size()*3 ,GL_UNSIGNED_INT, indices.data() ) ;	
 	}	
