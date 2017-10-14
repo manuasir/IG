@@ -85,6 +85,12 @@ int main(int argc, char **argv) {
 
 	escena = new Escena();
 
+	// Modificando para que se introduzcan parámetros
+	if (argc < 2 ){
+		cout << "Falta el path del fichero PLY y el modo de dibujado (revolución true/false)" << endl;
+		return 1;
+	}
+
 	// se llama a la inicialización de glut
 	glutInit(&argc, argv);
 
@@ -100,7 +106,7 @@ int main(int argc, char **argv) {
 	glutInitWindowSize(UI_window_width,UI_window_height);
 
 	// llamada para crear la ventana, indicando el titulo
-	glutCreateWindow("Práctica 1: Manuel Jiménez Bernal");
+	glutCreateWindow("Practica 1: Manuel Jimenez Bernal");
 
 	// asignación de la funcion llamada "dibujar" al evento de dibujo
 	glutDisplayFunc(draw_scene);
@@ -112,7 +118,7 @@ int main(int argc, char **argv) {
 	glutSpecialFunc(special_keys);
 
 	// funcion de inicialización
-	escena->inicializar(UI_window_width,UI_window_height);
+	escena->inicializar(UI_window_width,UI_window_height, argv[1]);
 	// inicio del bucle de eventos
 	glutMainLoop();
 	return 0;

@@ -19,10 +19,10 @@ ObjetoPly::ObjetoPly(){
 /**
 * Lee un fichero PLY y carga la información en los vectores de Objeto3D
 */
-void ObjetoPly::leerFichero(){
-  if (File_ply.open("/home/anon/FAC/IG/practica_2/src/icosahedron_ascii.ply")){
+void ObjetoPly::leerFichero(const string &File_name){
+  if (File_ply.open(File_name)){
   	vector<_vertex3f> auxvertices;
-	vector<_vertex3i> auxindices;
+    vector<_vertex3i> auxindices;
 
     File_ply.read(Objeto3D::getVertices(),Objeto3D::getIndices());
     cout << "auxverftices" << auxvertices.size() << endl;
@@ -35,6 +35,14 @@ void ObjetoPly::leerFichero(){
     Objeto3D::colorear();
   }
   else std::cout << "File can't be opened" << std::endl;
+}
+
+
+/**
+* Cierra un fichero PLY
+*/
+void ObjetoPly::closeFile(){
+  File_ply.close();
 }
 
 

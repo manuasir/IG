@@ -14,11 +14,13 @@ private:
 // tamaño de los ejes
 #define AXIS_SIZE 5000
 Ejes ejes;
+// Clases creadas
 Objeto3D objeto;
 Cubo cubo;
 Tetraedro tetraedro;
 Piramide piramide;
 ObjetoPly objetoPly;
+string path_ply;
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;
@@ -39,7 +41,7 @@ private:
 
 public:
     Escena();
-	void inicializar(int UI_window_width,int UI_window_height);
+	void inicializar(int UI_window_width,int UI_window_height, const string &path_ply);
 	void redimensionar(int newWidth,int newHeight) ;
 
 	// Dibujar

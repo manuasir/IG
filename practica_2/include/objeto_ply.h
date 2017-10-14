@@ -16,6 +16,8 @@ private:
 	_file_ply File_ply;
 public:
 	ObjetoPly();
-	void leerFichero();
+	void leerFichero(const string &File_name);
+	void closeFile();
+
 };
 #endif
