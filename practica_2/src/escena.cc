@@ -47,8 +47,6 @@ void Escena::dibujar() {
 }
 
 int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
-    //std::cout << "Tecla" << Tecla1<< std::endl;
-	GLenum mode;
 	GLenum modePolygon;
 	if (toupper(Tecla1)=='Q') return 1;
 	else if (toupper(Tecla1)=='P') {   objeto.setChess(false); objeto.colorear();  objeto.setGlEnumPolygon(GL_POINT); return 0; }

@@ -18,7 +18,6 @@ Objeto3D::Objeto3D(){
 * Limpia todos los vectores
 */
 void Objeto3D::clear(){
-	// vaciar arrays
 	colores.clear();
 	coloresPares.clear();
 	coloresImpares.clear();
@@ -49,7 +48,6 @@ void Objeto3D::colorearChess(){
 			indicesImpares.push_back(indices[i]);
 		}
 	}
-
 	for(int i=0;i<vertices.size();i++){
 		coloresPares.push_back(_vertex3f(1,0,0));
 		coloresImpares.push_back(_vertex3f(0,0,1));
@@ -60,7 +58,6 @@ void Objeto3D::colorearChess(){
 * Esta función se llama 30 veces por segundo (30 FPS)
 */
 void Objeto3D::dibujar(){
-	
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState( GL_COLOR_ARRAY );
 	glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);

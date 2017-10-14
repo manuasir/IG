@@ -1,6 +1,5 @@
 // Manuel Jiménez Bernal
 
-
 #ifndef _OBJETO3D_H
 #define _OBJETO3D_H
 #include <GL/gl.h>
@@ -11,6 +10,9 @@
 
 using namespace std;
 
+/**
+* Clase principal que contiene las estructuras de datos para modelar cosas
+*/
 class Objeto3D {
 
 public:
@@ -24,15 +26,13 @@ public:
 	vector<_vertex3i> indicesImpares;
 
 	int num_tri;
-	GLenum mode;
-	GLenum modePolygon;
+	GLenum modePolygon = GL_LINE;
 	bool chess;
 
 public:
 	Objeto3D();
 	void dibujar();
 	void setNumTri(int num){ num_tri=num; }
-	void setGlEnum(GLenum elem){ mode=elem; }
 	void setGlEnumPolygon(GLenum elem){ modePolygon=elem; }
 	void colorear();
 	void colorearChess();
