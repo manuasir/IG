@@ -1,15 +1,12 @@
 // Manuel Jiménez Bernal
 
-#ifndef _OBJETO_PLY_H_
-#define _OBJETO_PLY_H_
+
+#ifndef _REVOLUCION_H_
+#define _REVOLUCION_H_
 #include "objeto3D.h"
 #include <iostream>
-#include "file_ply_stl.h"
 #include "vertex.h"
 
-/**
-* Clase que gestiona el manejo de ficheros con format PLY y lo asigna a un Objeto3D
-*/
 class ObjetoPly : public Objeto3D
 {
 private:

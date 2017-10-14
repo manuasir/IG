@@ -20,7 +20,7 @@ ObjetoPly::ObjetoPly(){
 * Lee un fichero PLY y carga la información en los vectores de Objeto3D
 */
 void ObjetoPly::leerFichero(){
-  if (File_ply.open("/home/anon/FAC/IG/practica_2/src/beethoven.ply")){
+  if (File_ply.open("/home/anon/FAC/IG/practica_2/src/icosahedron_ascii.ply")){
   	vector<_vertex3f> auxvertices;
 	vector<_vertex3i> auxindices;
 
