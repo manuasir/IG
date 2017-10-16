@@ -8,6 +8,7 @@
 #include "tetraedro.h"
 #include "piramide.h"
 #include "objeto_ply.h"
+#include "objetorevolucionado.h"
 
 class Escena {
 private:
@@ -21,6 +22,8 @@ Tetraedro tetraedro;
 Piramide piramide;
 ObjetoPly objetoPly;
 string path_ply;
+
+ObjetoRevolucionado objetoRevolucionado;
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;

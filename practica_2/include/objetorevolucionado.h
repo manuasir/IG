@@ -3,19 +3,20 @@
 
 #ifndef _REVOLUCION_H_
 #define _REVOLUCION_H_
-#include "objeto3D.h"
 #include <iostream>
 #include "vertex.h"
 #include "objeto_ply.h"
 
-class ObjetoRevolucionado : public Objeto3D
+class ObjetoRevolucionado : public ObjetoPly
 {
 private:
-	vector<_vertex3f> auxvertices;
-  	vector<_vertex3i> auxindices;
 
 public:
 	ObjetoRevolucionado();
-	void leerFichero();
+	//void leerFichero();
+	_vertex3f revEjeY(_vertex3f vertice, float angulo);
+	void revolucionar();
+	void close();
+	void read(const string & path);
 };
 #endif

@@ -42,6 +42,10 @@ public:
 	vector<_vertex3f> & getVertices(){ return vertices; }
 	void setVertices(vector<_vertex3f> vec){ vertices = vec; }
 	void setIndices(vector<_vertex3i> vec){ indices = vec; }
+	void setVertice(_vertex3f vec){ vertices.push_back(vec); }
+	void setIndice(_vertex3i vec){ indices.push_back(vec); }
+	_vertex3f getVertice(int i){ return vertices[i]; }
+	_vertex3i getIndice(int i){ return indices[i]; }
 
 };
 

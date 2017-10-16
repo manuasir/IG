@@ -56,14 +56,25 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	else if (toupper(Tecla1)=='A') {   objeto.setChess(true); objeto.colorearChess(); objeto.setGlEnumPolygon(GL_FILL); return 0; }
 	else if (toupper(Tecla1)=='1') {   objeto.clear(); objeto = cubo; return 0; }
 	else if (toupper(Tecla1)=='2') {   objeto.clear(); objeto = tetraedro; return 0; }
-	else if (toupper(Tecla1)=='3') {   objeto.clear(); objeto = piramide; return 0; }
-	else if (toupper(Tecla1)=='4') {   
+	else if (toupper(Tecla1)=='3') {   
 		objeto.setChess(false); 
 		objeto.clear();
 		objetoPly.leerFichero(path_ply);
    		objeto = objetoPly;
-   		if (toupper(Tecla1)=='4') {
+   		if (toupper(Tecla1)=='3') {
    			objetoPly.closeFile();
+	 	}
+	 	return 0;
+	}
+	else if (toupper(Tecla1)=='4') {   
+		cout << "REVOLUCION!!!" << endl;
+		objeto.setChess(false); 
+		objeto.clear();
+		objetoRevolucionado.read("./ply/revolucion.ply");
+		objetoRevolucionado.revolucionar();
+   		//objeto = objetoRevolucionado;
+   		if (toupper(Tecla1)=='4') {
+   			objetoRevolucionado.close();
 	 	}
 	 	return 0;
 	}
