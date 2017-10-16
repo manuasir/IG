@@ -36,18 +36,31 @@ _vertex3f ObjetoRevolucionado::revEjeY(_vertex3f vertice, float angulo){
 * Lee un fichero PLY y carga la información en los vectores de Objeto3D
 */
 void ObjetoRevolucionado::revolucionar(){
+  int size = Objeto3D::getVertices().size();
   float circunferenciaRadianes = 360 * M_PI / 180.0;
-  vector<_vertex3f> auxVector;
+  vector<_vertex3f> vertRev(Objeto3D::getVertices());
+  vector<_vertex3i> indicesRev;
   for(unsigned int paso = 0; paso < 20; paso++){
     float angulo = circunferenciaRadianes / paso;
     cout << angulo;
-    for(int i = 0; i < Objeto3D::getVertices().size() ; i++){
-      cout << Objeto3D::getVertices().size() << endl;
-
-      _vertex3f aux = revEjeY(Objeto3D::getVertice(i),angulo);
-      Objeto3D::setVertice(aux);
-      //cout << Objeto3D::getVertice(i).x << endl;
+    vector<_vertex3f> sig_perfil(size);
+    for(int i = 0; i < size ; i++)
+      sig_perfil[i] = revEjeY(Objeto3D::getVertice(i),angulo);
+    vertRev.insert(vertRev.end(),sig_perfil.begin(),sig_perfil.end());
+    //Generamos las caras con los nuevos vértices
+    unsigned int perfilInicio, perfilFinal;
+    perfilInicio = paso * size;
+    perfilFinal = perfilInicio + size;
+    
+    for (unsigned int i = perfilInicio+1, k = perfilFinal+1; i < perfilFinal; i++, k++){
+      indicesRev.push_back(_vertex3i(i-1, k-1, k));
+      indicesRev.push_back(_vertex3i(i-1, k,   i));
     }
+
+    Objeto3D::setVertices(sig_perfil);
+    Objeto3D::setIndices(indicesRev);
+   // Objeto3D::colorear();
+    
   }
 }
 

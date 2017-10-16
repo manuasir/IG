@@ -72,7 +72,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		objeto.clear();
 		objetoRevolucionado.read("./ply/revolucion.ply");
 		objetoRevolucionado.revolucionar();
-   		//objeto = objetoRevolucionado;
+   		objeto = objetoRevolucionado;
    		if (toupper(Tecla1)=='4') {
    			objetoRevolucionado.close();
 	 	}
