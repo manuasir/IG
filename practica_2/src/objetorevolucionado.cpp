@@ -21,15 +21,12 @@ ObjetoRevolucionado::ObjetoRevolucionado(){
 **/
 _vertex3f ObjetoRevolucionado::revEjeY(_vertex3f vertice, float angulo){
     //cout << vertice.x << endl;
-
-  
     _vertex3f auxvert;
     auxvert.x = cos(angulo) * vertice.x + sin(angulo) * vertice.z;
     auxvert.y = vertice.y;
     auxvert.z = -sin(angulo) * vertice.x + cos(angulo) * vertice.z;
     //cout << auxvert.x;
     return auxvert;
-    
 }
 
 /**
@@ -41,9 +38,7 @@ void ObjetoRevolucionado::revolucionar(){
   float angulo = circunferenciaRadianes / 20;
 
   for(unsigned int paso = 0; paso < 20; paso++){
-    cout << angulo;
     vector<_vertex3f> sig_perfil;
-    cout << "TAMAÑO " << sig_perfil.size() << endl;
     unsigned int perfilInicio, perfilFinal;
 
     perfilInicio = paso * size;
@@ -52,13 +47,14 @@ void ObjetoRevolucionado::revolucionar(){
       sig_perfil.push_back(revEjeY(Objeto3D::getVertice(i),angulo));
     Objeto3D::getVertices().insert(Objeto3D::getVertices().end(),sig_perfil.begin(),sig_perfil.end());
     sig_perfil.clear();
-    cout << "tamaño debe ser incremental " << Objeto3D::getVertices().size() << endl;
-    //Generamos las caras con los nuevos vértices    
+    // Pintar los triangulos mapeando en el array las posiciones
     for (unsigned int i = perfilInicio+1, k = perfilFinal+1; i < perfilFinal; i++, k++){
       Objeto3D::setIndice(_vertex3i(i-1,k-1,k));
       Objeto3D::setIndice(_vertex3i(i-1,k,i));
     }
   }
+  // tapa de abajo
+
 }
 
 /**
