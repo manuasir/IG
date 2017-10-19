@@ -46,6 +46,8 @@ public:
 	void setIndice(_vertex3i vec){ indices.push_back(vec); }
 	_vertex3f getVertice(int i){ return vertices[i]; }
 	_vertex3i getIndice(int i){ return indices[i]; }
+	int getTamVertices(){ return vertices.size(); }
+	int getTamIndices(){ return indices.size(); }
 
 };
 

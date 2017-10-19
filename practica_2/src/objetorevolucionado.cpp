@@ -33,7 +33,7 @@ _vertex3f ObjetoRevolucionado::revEjeY(_vertex3f vertice, float angulo){
 * Lee un fichero PLY y carga la información en los vectores de Objeto3D
 */
 void ObjetoRevolucionado::revolucionar(){
-  int size = Objeto3D::getVertices().size();
+  int size = Objeto3D::getTamVertices();
   float circunferenciaRadianes = 360 * M_PI / 180.0;
   float angulo = circunferenciaRadianes / 20;
 
@@ -53,8 +53,18 @@ void ObjetoRevolucionado::revolucionar(){
       Objeto3D::setIndice(_vertex3i(i-1,k,i));
     }
   }
+  // Colocar la tapa de abajo:
+  // - acceder al eje Y del primer vértice para ajustar la altura más baja de la figura
+  // - acceder a los primeros vértices de cada perfil para conectar con el central
+  Objeto3D::setVertice(_vertex3f(0.0,Objeto3D::getVertices().front().y,0.0));
+    for(unsigned int paso = 0; paso < 20; paso++){
+      unsigned int perfilInicio = paso * size;
+      unsigned int perfilFinal = perfilInicio + size;
+      Objeto3D::setIndice(_vertex3i(Objeto3D::getTamVertices()-1,perfilFinal,perfilInicio));
+    }
+    
   // tapa de abajo
-
+  //Objeto3D::setVertice()
 }
 
 /**

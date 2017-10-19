@@ -18,6 +18,5 @@ public:
 	ObjetoPly();
 	void leerFichero(const string &File_name);
 	void closeFile();
-
 };
 #endif

@@ -25,8 +25,8 @@ void Escena::inicializar(int UI_window_width,int UI_window_height, const string 
 	glEnable(GL_DEPTH_TEST);	// se habilita el z-bufer
 
 	this->change_projection();
-	Width=UI_window_width/10;
-	Height=UI_window_height/10;
+	Width=UI_window_width/30;
+	Height=UI_window_height/30;
 	glViewport(0,0,UI_window_width,UI_window_height);
 	path_ply=path;
 }
@@ -70,7 +70,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		cout << "REVOLUCION!!!" << endl;
 		objeto.setChess(false); 
 		objeto.clear();
-		objetoRevolucionado.read("./ply/revolucion.ply");
+		objetoRevolucionado.read("./ply/cilindro.ply");
 		cout << "a revolucionar" << endl;
 		objetoRevolucionado.revolucionar();
 		cout << "fin de revolucionado" << endl;
