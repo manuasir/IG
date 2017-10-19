@@ -25,8 +25,8 @@ void Escena::inicializar(int UI_window_width,int UI_window_height, const string 
 	glEnable(GL_DEPTH_TEST);	// se habilita el z-bufer
 
 	this->change_projection();
-	Width=UI_window_width/30;
-	Height=UI_window_height/30;
+	Width=UI_window_width/20;
+	Height=UI_window_height/20;
 	glViewport(0,0,UI_window_width,UI_window_height);
 	path_ply=path;
 }
