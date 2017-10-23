@@ -27,9 +27,9 @@ void ObjetoPly::leerFichero(const string &File_name){
     File_ply.read(Objeto3D::getVertices(),Objeto3D::getIndices());
     cout << "auxverftices" << auxvertices.size() << endl;
     for(int i=0;i<Objeto3D::getVertices().size();i++){
-        Objeto3D::getVertices()[i].x = 15*Objeto3D::getVertices()[i].x;
-        Objeto3D::getVertices()[i].y = 15*Objeto3D::getVertices()[i].y;
-        Objeto3D::getVertices()[i].z = 15*Objeto3D::getVertices()[i].z;
+        Objeto3D::getVertices()[i].x = 10*Objeto3D::getVertices()[i].x;
+        Objeto3D::getVertices()[i].y = 10*Objeto3D::getVertices()[i].y;
+        Objeto3D::getVertices()[i].z = 10*Objeto3D::getVertices()[i].z;
     }
     std::cout << "File read correctly" << getVertices().size() << std::endl;
     Objeto3D::colorear();

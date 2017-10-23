@@ -6,6 +6,7 @@
 #include "../include/objetorevolucionado.h"
 #include <vector>
 #include <iostream>
+#include <cmath>        // std::abs
 
 using namespace std;
 
@@ -16,11 +17,18 @@ ObjetoRevolucionado::ObjetoRevolucionado(){
   
 }
 
+void ObjetoRevolucionado::normalizar(vector<_vertex3f> & vertex){
+  for(int i=0;i<vertex.size();i++)
+    if(vertex[i].x < 0){
+        vertex[i].x=abs(vertex[i].x);
+      }
+}
 /**
  * Pasado un vertice _vertex3f devuelve otro que le corresponde en un barrido por revolución en el eje Y
 **/
 _vertex3f ObjetoRevolucionado::revEjeY(_vertex3f vertice, float angulo){
     //cout << vertice.x << endl;
+    
     _vertex3f auxvert;
     auxvert.x = cos(angulo) * vertice.x + sin(angulo) * vertice.z;
     auxvert.y = vertice.y;
@@ -39,7 +47,10 @@ void ObjetoRevolucionado::revolucionar(){
   float circunferenciaRadianes = 360 * M_PI / 180.0;
   // 20 por poner algo, mientras más pasos menores serán los ángulos
   float angulo = circunferenciaRadianes / 20;
-  // Generar los perfiles
+
+  normalizar(Objeto3D::getVertices());
+
+  // Generar los perfqiles
   for(unsigned int paso = 0; paso < 20; paso++){
     vector<_vertex3f> sig_perfil;
     // Esto controla dónde empieza y dónde acaba cada perfil, al estar todos en el mismo vector
@@ -63,6 +74,7 @@ void ObjetoRevolucionado::revolucionar(){
   // Colocar la tapa de abajo:
   // - acceder al eje Y del primer vértice para ajustar la altura más baja de la figura
   // - acceder a los primeros vértices de cada perfil para conectar con el central
+  
   Objeto3D::setVertice(_vertex3f(0.0,Objeto3D::getVertices().front().y,0.0));
     for(unsigned int paso = 0; paso < 20; paso++){
       unsigned int primerVertice = paso * size;
@@ -78,6 +90,7 @@ void ObjetoRevolucionado::revolucionar(){
       unsigned int segundoVertice = primerVertice + size;
       Objeto3D::setIndice(_vertex3i(Objeto3D::getVertices().size()-1,primerVertice,segundoVertice));
     }
+    
 }
 
 /**

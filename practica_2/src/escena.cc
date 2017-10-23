@@ -70,7 +70,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		cout << "REVOLUCION!!!" << endl;
 		objeto.setChess(false); 
 		objeto.clear();
-		objetoRevolucionado.read("./ply/cilindro.ply");
+		objetoRevolucionado.read("./ply/revolucion.ply");
 		cout << "a revolucionar" << endl;
 		objetoRevolucionado.revolucionar();
 		cout << "fin de revolucionado" << endl;

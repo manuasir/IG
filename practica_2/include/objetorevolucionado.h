@@ -18,5 +18,6 @@ public:
 	void revolucionar();
 	void close();
 	void read(const string & path);
+	void normalizar(vector<_vertex3f> & vertex);
 };
 #endif
