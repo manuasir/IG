@@ -5,26 +5,22 @@ ObjetoJerarquico::ObjetoJerarquico(){
 	//objeto=cubo;
 };
 
-
 void ObjetoJerarquico::dibujaBase(){
-	
 	glPushMatrix();
-	glTranslatef(0,25,0);
-	glScalef(0.5,0.05,0.5);
+	glTranslatef(0,0,0);
+	glScalef(0.5,0.1,0.5);
 	cubo.dibujar();
 	glPopMatrix();
-	
 }
 
-void ObjetoJerarquico::dibujaTapa(){
-	
+void ObjetoJerarquico::dibujaPrimerCuerpo(){
 	glPushMatrix();
-	glTranslatef(25,38,0);
-	glScalef(0.05,0.3,0.5);
-	cubo.dibujar();
+	glTranslatef(0,5,0);
+	glScalef(0.5,1,0.5);
+	tetra.dibujar();
 	glPopMatrix();
-	
 }
+
 /*
 void ObjetoJerarquico::dibujaObjeto(float angulo, int horizontal, int vertical){
 	
@@ -40,8 +36,10 @@ void ObjetoJerarquico::dibujaObjeto(float angulo, int horizontal, int vertical){
 void ObjetoJerarquico::dibujaObjeto(){
 	
 	glPushMatrix();
+	glRotatef(30,0.0,1.0,0.0);
+
 	dibujaBase();
-	dibujaTapa();
+	dibujaPrimerCuerpo();
 
 	glPopMatrix();
 	
