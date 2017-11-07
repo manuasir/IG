@@ -9,6 +9,7 @@
 #include "piramide.h"
 #include "objeto_ply.h"
 #include "objetorevolucionado.h"
+#include "objeto-jerarquico.h"
 
 class Escena {
 private:
@@ -24,12 +25,13 @@ ObjetoPly objetoPly;
 string path_ply;
 
 ObjetoRevolucionado objetoRevolucionado;
+ObjetoJerarquico objetoJerarquico;
 
 // variables que definen la posicion de la camara en coordenadas polares
 GLfloat Observer_distance;
 GLfloat Observer_angle_x;
 GLfloat Observer_angle_y;
-
+bool isJerarquico=false;
 // variables que controlan la ventana y la transformacion de perspectiva
 GLfloat Width,Height,Front_plane,Back_plane;
 

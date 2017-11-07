@@ -7,7 +7,6 @@
 #include <GL/glut.h>
 #include "../include/escena.h"
 
-
 Escena::Escena(){
     Front_plane=50;
     Back_plane=2000;
@@ -36,8 +35,11 @@ void Escena::inicializar(int UI_window_width,int UI_window_height, const string 
 // Funcion que dibuja objetos en la escena
 //***************************************************************************
 void Escena::draw_objects() {
-	objeto.dibujar();
-}
+	if(!isJerarquico)
+		objeto.dibujar();
+	else
+		objetoJerarquico.dibujaObjeto();
+}	
 
 void Escena::dibujar() {
 
@@ -67,18 +69,23 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	 	return 0;
 	}
 	else if (toupper(Tecla1)=='4') {   
-		cout << "REVOLUCION!!!" << endl;
+		
+		cout << "REVOLUC" << endl;
 		objeto.setChess(false); 
 		objeto.clear();
 		objetoRevolucionado.read("./ply/revolucion.ply");
-		cout << "a revolucionar" << endl;
 		objetoRevolucionado.revolucionar();
-		cout << "fin de revolucionado" << endl;
    		objeto = objetoRevolucionado;
    		if (toupper(Tecla1)=='4') {
+
    			objetoRevolucionado.close();
 	 	}
 	 	return 0;
+	}
+	else if (toupper(Tecla1)=='5') {   
+		cout << "jerarquico a true " << endl;
+		isJerarquico=true;
+		return 0;
 	}
 	else return 0;
 }
