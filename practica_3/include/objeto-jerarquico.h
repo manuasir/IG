@@ -17,7 +17,11 @@ public:
 	ObjetoJerarquico();
 	void dibujaBase();
 	void dibujaPrimerCuerpo();
+	void dibujaSegundoCuerpo();
+	void dibujaTercerCuerpo();
 	void dibujaObjeto();
+	void dibujaGancho();
+	void dibujaCuerda();
 	//void setTipo(Objeto3D::DrawMode tip);
 };
 
