@@ -11,6 +11,7 @@ private:
 	//Objeto3D::DrawMode tipo = Objeto3D::CHESS;
 	Cubo cubo;
 	Tetraedro tetra;
+	float anguloArriba;
 public:
 	//Objeto3D objeto;
 	
@@ -20,8 +21,10 @@ public:
 	void dibujaSegundoCuerpo();
 	void dibujaTercerCuerpo();
 	void dibujaObjeto();
-	void dibujaGancho();
+	void dibujaPlataforma();
 	void dibujaCuerda();
+	void girarPlataformaIzq(){ anguloArriba++; }
+	void girarPlataformaDer(){ anguloArriba--; }
 	//void setTipo(Objeto3D::DrawMode tip);
 };
 

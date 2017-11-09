@@ -52,13 +52,62 @@ void Escena::dibujar() {
 int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	GLenum modePolygon;
 	if (toupper(Tecla1)=='Q') {objeto.clear(); return 1;}
-	else if (toupper(Tecla1)=='P') {   objeto.setChess(false); objeto.colorear(); objeto.setGlEnumPolygon(GL_POINT); return 0; }
-	else if (toupper(Tecla1)=='L') {   objeto.setChess(false); objeto.colorear(); objeto.setGlEnumPolygon(GL_LINE); return 0; }
-	else if (toupper(Tecla1)=='S') {   objeto.setChess(false); objeto.colorear(); objeto.setGlEnumPolygon(GL_FILL); return 0; }
-	else if (toupper(Tecla1)=='A') {   objeto.setChess(true); objeto.colorearChess(); objeto.setGlEnumPolygon(GL_FILL); return 0; }
-	else if (toupper(Tecla1)=='1') {   objeto.clear(); objeto = cubo; return 0; }
-	else if (toupper(Tecla1)=='2') {   objeto.clear(); objeto = tetraedro; return 0; }
+	else if (toupper(Tecla1)=='P') {   
+		objeto.setChess(false); 
+		if(!isJerarquico){ 
+
+			objeto.colorear(); 
+			objeto.setGlEnumPolygon(GL_POINT); 
+			return 0; 
+		} else {
+			return 0;
+		}
+	}
+	else if (toupper(Tecla1)=='L') {   
+		objeto.setChess(false);
+		if(!isJerarquico){ 
+			objeto.colorear();
+			objeto.setGlEnumPolygon(GL_LINE); 
+		return 0; 
+		} else {
+			return 0;
+		}
+	}
+	else if (toupper(Tecla1)=='S') {   
+		
+		objeto.setChess(false); 
+		if(!isJerarquico){ 
+			objeto.colorear(); 
+			objeto.setGlEnumPolygon(GL_FILL); 
+			return 0; 
+		} else { 
+			return 0; 
+		}
+	}
+	else if (toupper(Tecla1)=='A') {   
+		objeto.setChess(true); 
+		if(!isJerarquico){
+			objeto.colorearChess(); 
+			objeto.setGlEnumPolygon(GL_FILL); 
+			return 0; 
+		} else {
+			return 0;
+		}
+	}
+	else if (toupper(Tecla1)=='1') {   
+		isJerarquico=false; 
+		objeto.clear(); 
+		objeto = cubo; 
+		return 0; 
+	}
+	else if (toupper(Tecla1)=='2') {   
+		isJerarquico=false; 
+		objeto.clear(); 
+		objeto = tetraedro; 
+		return 0; 
+	}
 	else if (toupper(Tecla1)=='3') {   
+		isJerarquico=false;
 		objeto.setChess(false); 
 		objeto.clear();
 		objetoPly.leerFichero(path_ply);
@@ -83,9 +132,19 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	 	return 0;
 	}
 	else if (toupper(Tecla1)=='5') {   
-		cout << "jerarquico a true " << endl;
 		isJerarquico=true;
 		return 0;
+	} 
+	else if (toupper(Tecla1)=='Z') { 
+			if(isJerarquico)
+				objetoJerarquico.girarPlataformaIzq();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='z') { 
+			cout << "LA Z" << endl;
+			if(isJerarquico)
+				objetoJerarquico.girarPlataformaDer();
+			return 0;
 	}
 	else return 0;
 }
