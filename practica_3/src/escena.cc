@@ -140,10 +140,29 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 				objetoJerarquico.girarPlataformaIzq();
 			return 0;
 	}
-	else if (toupper(Tecla1)=='z') { 
-			cout << "LA Z" << endl;
+	else if (toupper(Tecla1)=='X') { 
 			if(isJerarquico)
 				objetoJerarquico.girarPlataformaDer();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='C') { 
+			if(isJerarquico)
+				objetoJerarquico.avanzarPlataforma();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='V') { 
+			if(isJerarquico)
+				objetoJerarquico.retrocederPlataforma();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='B') { 
+			if(isJerarquico)
+				objetoJerarquico.subir();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='N') { 
+			if(isJerarquico)
+				objetoJerarquico.bajar();
 			return 0;
 	}
 	else return 0;

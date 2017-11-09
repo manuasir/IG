@@ -4,6 +4,8 @@ using namespace std;
 ObjetoJerarquico::ObjetoJerarquico(){
 	//objeto=cubo;
 	anguloArriba=0;
+	ejeX=0;
+	ejeY=1.0;
 };
 
 void ObjetoJerarquico::dibujaBase(){
@@ -56,21 +58,10 @@ void ObjetoJerarquico::dibujaCuerda(){
 	glPopMatrix();
 }
 
-/*
-void ObjetoJerarquico::dibujaObjeto(float angulo, int horizontal, int vertical){
-	
-	glPushMatrix();
-	glRotatef(angulo,0.0,1.0,0.0);
-	glTranslatef(horizontal,0,vertical);
-	dibujaBase();
-	dibujaTapa();
-	glPopMatrix();
-};
-*/
-
 void ObjetoJerarquico::dibujaObjeto(){
 	glPushMatrix();
 	glRotatef(30,0.0,1.0,0.0);
+	glTranslatef(ejeX,0.0,0.0);
 	dibujaBase();
 	dibujaPrimerCuerpo();
 	dibujaSegundoCuerpo();
@@ -78,9 +69,11 @@ void ObjetoJerarquico::dibujaObjeto(){
 		glPushMatrix();
 			glRotatef(anguloArriba,0.0,1.0,0.0);
 			dibujaPlataforma();
-			dibujaCuerda();
+			glPushMatrix();
+				glScalef(1.0,ejeY,1.0);
+				dibujaCuerda();
+			glPopMatrix();	
 		glPopMatrix();
-
 	glPopMatrix();
 };
 
