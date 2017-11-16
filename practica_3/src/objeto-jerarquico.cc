@@ -8,76 +8,81 @@ ObjetoJerarquico::ObjetoJerarquico(){
 };
 
 void ObjetoJerarquico::dibujaBase(){
-	glPushMatrix();
-		glTranslatef(-10,0,0);
-		glScalef(0.5,0.1,0.5);
-		cubo.dibujar();
-	glPopMatrix();
+	//glPushMatrix();
+		base.trasladar(-10,0,0);
+		base.escalar(0.5,0.1,0.5);
+		//base.dibujar();
+	//glPopMatrix();
 }
 
 void ObjetoJerarquico::dibujaPrimerCuerpo(){
-	glPushMatrix();
-		glTranslatef(0,5,0);
-		glScalef(0.2,1,0.1);
-		tetra.dibujar();
-	glPopMatrix();
+	//glPushMatrix();
+		tetra.trasladar(0,5,0);
+		tetra.escalar(0.2,1,0.1);
+		base.setHijo(tetra);
+	//glPopMatrix();
 }
 
 void ObjetoJerarquico::dibujaSegundoCuerpo(){
-	glPushMatrix();
-		glTranslatef(0,55,0);
-		glScalef(0.2,0.5,0.1);
-		tetra.dibujar();
-	glPopMatrix();
+	//glPushMatrix();
+		tetra.trasladar(0,55,0);
+		tetra.escalar(0.2,0.5,0.1);
+		base.setHijo(tetra);
+		//tetra.dibujar();
+	//glPopMatrix();
 }
 
 void ObjetoJerarquico::dibujaTercerCuerpo(){
-	glPushMatrix();
-		glTranslatef(0,80,0);
-		glScalef(0.1,0.5,0.1);
-		tetra.dibujar();
-	glPopMatrix();
+	//glPushMatrix();
+		tetra.trasladar(0,80,0);
+		tetra.escalar(0.1,0.5,0.1);
+		base.setHijo(tetra);
+		//tetra.dibujar();
+	//glPopMatrix();
 }
 
 void ObjetoJerarquico::dibujaPlataforma(){
-	glPushMatrix();
-		glTranslatef(-7,95,0);
-		glRotatef(90.0, 1.0, 0.0, 0.0);
-		glScalef(0.3,1,0.1);
-		cubo.dibujar();
-	glPopMatrix();
+	//glPushMatrix();
+		tetra.trasladar(-7,95,0);
+		tetra.rotar(90.0, 1.0, 0.0, 0.0);
+		tetra.escalar(0.3,1,0.1);
+		base.setHijo(tetra);
+		//base.dibujar();
+	//glPopMatrix();
 }
 
 void ObjetoJerarquico::dibujaCuerda(){
-	glPushMatrix();
-		glTranslatef(0,90,50);
-		glRotatef(180.0, 1.0, 0.0, 0.0);
-		glScalef(0.05,1,0.05);
-		cubo.dibujar();
-	glPopMatrix();
+	//glPushMatrix();
+		tetra.trasladar(0,90,50);
+		tetra.rotar(180.0, 1.0, 0.0, 0.0);
+		tetra.escalar(0.05,1,0.05);
+		base.setHijo(tetra);
+		//base.dibujar();
+	//glPopMatrix();
 }
 
 void ObjetoJerarquico::dibujaObjeto(){
-	glPushMatrix();
-		glRotatef(30,0.0,1.0,0.0);
-		glTranslatef(ejeX,0.0,0.0);
-		dibujaBase();
-		dibujaPrimerCuerpo();
-		glPushMatrix();
+	//glPushMatrix();
+		base.rotar(30,0.0,1.0,0.0);
+		base.trasladar(ejeX,0.0,0.0);
+		base.dibujar();
+		//dibujaBase();
+		//dibujaPrimerCuerpo();
+		//glPushMatrix();
 			//glRotatef(180,1.0,0.0,0.0);
-			dibujaSegundoCuerpo();
-			dibujaTercerCuerpo();
-			glPushMatrix();
-				glRotatef(anguloArriba,0.0,1.0,0.0);
-				dibujaPlataforma();
-				glPushMatrix();
-					glScalef(1,ejeY,1);
-					dibujaCuerda();
+			//dibujaSegundoCuerpo();
+			//dibujaTercerCuerpo();
+			//glPushMatrix();
+			//	glRotatef(anguloArriba,0.0,1.0,0.0);
+			//	dibujaPlataforma();
+			//	glPushMatrix();
+			//		glScalef(1,ejeY,1);
+			//		dibujaCuerda();
 
-				glPopMatrix();
-			glPopMatrix();
-		glPopMatrix();
-	glPopMatrix();
+			//	glPopMatrix();
+			//glPopMatrix();
+		//glPopMatrix();
+	//glPopMatrix();
 };
 
 /*

@@ -65,6 +65,7 @@ void Objeto3D::colorearChess(){
 	}	
 }
 
+
 /**
 * Esta función se llama 30 veces por segundo (30 FPS)
 */
@@ -94,6 +95,10 @@ void Objeto3D::dibujar(){
 		glRotatef(grados,rotateX,rotateY,rotateZ);
 		glTranslatef(translateX,translateY,translateZ);
 		dibujaObjeto();
+		if(children.size()>0)
+			for(int i=0;i<children.size();++i){
+				children[i].dibujar();
+			}
 	glPopMatrix();
 }
 

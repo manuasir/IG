@@ -8,7 +8,7 @@
 
 class ObjetoJerarquico: public Objeto3D{
 private:
-	Cubo cubo;
+	Cubo base;
 	Tetraedro tetra;
 	float ejeX,ejeY;
 	float anguloArriba;
@@ -28,6 +28,7 @@ public:
 	void retrocederPlataforma(){ ejeX--; }
 	void subir(){ ejeY-=0.05; }
 	void bajar(){ ejeY+=0.05; }
+	void dibujar(){ base.dibujar(); }
 };
 
 #endif

@@ -24,7 +24,7 @@ public:
 	vector<_vertex3i> indices;
 	vector<_vertex3i> indicesPares;
 	vector<_vertex3i> indicesImpares;
-	vector<Objeto3D*> children;
+	vector<Objeto3D> children;
 
 	int num_tri;
 	float rotateX,rotateY,rotateZ,scaleX,scaleY,scaleZ,translateX,translateY,translateZ,grados;
@@ -51,5 +51,9 @@ public:
 	int getTamVertices(){ return vertices.size(); }
 	int getTamIndices(){ return indices.size(); }
 	void dibujaObjeto();
+	void rotar(float angulo,float x,float y,float z){ grados=angulo, rotateX=x; rotateY=y; rotateZ=z; dibujar(); };
+	void escalar(float x,float y,float z){ scaleX=x; scaleY=y; scaleZ=z; dibujar(); };
+	void trasladar(float x,float y,float z){ translateX=x; translateY=y; translateZ=z; dibujar(); };
+	void setHijo(Objeto3D obj){ children.push_back(obj); };
 };
 #endif
