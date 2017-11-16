@@ -11,7 +11,16 @@
 * Constructores
 */
 Objeto3D::Objeto3D(){
-
+	rotateX=0;
+	rotateY=0;
+	rotateZ=0;
+	scaleX=1;
+	scaleY=1;
+	scaleZ=1;
+	translateX=0;
+	translateY=0;
+	translateZ=0;
+	grados=0;
 }
 
 
@@ -26,6 +35,7 @@ void Objeto3D::clear(){
 	indicesPares.clear();
 	indicesImpares.clear();
 	vertices.clear();
+	children.clear();
 }
 
 /**
@@ -58,7 +68,7 @@ void Objeto3D::colorearChess(){
 /**
 * Esta función se llama 30 veces por segundo (30 FPS)
 */
-void Objeto3D::dibujar(){
+void Objeto3D::dibujaObjeto(){
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState( GL_COLOR_ARRAY );
 	glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);
@@ -76,5 +86,14 @@ void Objeto3D::dibujar(){
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
 		glDrawElements( GL_TRIANGLES, indices.size()*3 ,GL_UNSIGNED_INT, indices.data() ) ;	
 	}	
+}
+
+void Objeto3D::dibujar(){
+	glPushMatrix();
+		glScalef(scaleX,scaleY,scaleZ);
+		glRotatef(grados,rotateX,rotateY,rotateZ);
+		glTranslatef(translateX,translateY,translateZ);
+		dibujaObjeto();
+	glPopMatrix();
 }
 

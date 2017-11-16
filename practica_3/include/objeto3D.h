@@ -25,9 +25,9 @@ public:
 	vector<_vertex3i> indicesPares;
 	vector<_vertex3i> indicesImpares;
 	vector<Objeto3D*> children;
-	
 
 	int num_tri;
+	float rotateX,rotateY,rotateZ,scaleX,scaleY,scaleZ,translateX,translateY,translateZ,grados;
 	GLenum modePolygon = GL_LINE;
 	bool chess;
 
@@ -50,7 +50,6 @@ public:
 	_vertex3i getIndice(int i){ return indices[i]; }
 	int getTamVertices(){ return vertices.size(); }
 	int getTamIndices(){ return indices.size(); }
-
+	void dibujaObjeto();
 };
-
 #endif
