@@ -14,6 +14,7 @@ Objeto3D::Objeto3D(){
 
 }
 
+
 /**
 * Limpia todos los vectores
 */

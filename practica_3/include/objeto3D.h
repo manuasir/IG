@@ -24,6 +24,8 @@ public:
 	vector<_vertex3i> indices;
 	vector<_vertex3i> indicesPares;
 	vector<_vertex3i> indicesImpares;
+	vector<Objeto3D*> children;
+	
 
 	int num_tri;
 	GLenum modePolygon = GL_LINE;
