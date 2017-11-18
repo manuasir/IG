@@ -55,8 +55,6 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	else if (toupper(Tecla1)=='P') {   
 		objeto.setChess(false); 
 		if(!isJerarquico){ 
-
-			//objeto.colorear(); 
 			objeto.setGlEnumPolygon(GL_POINT); 
 			return 0; 
 		} else {
@@ -66,7 +64,6 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	else if (toupper(Tecla1)=='L') {   
 		objeto.setChess(false);
 		if(!isJerarquico){ 
-			//objeto.colorear();
 			objeto.setGlEnumPolygon(GL_LINE); 
 		return 0; 
 		} else {
@@ -77,7 +74,6 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		
 		objeto.setChess(false); 
 		if(!isJerarquico){ 
-			//objeto.colorear(); 
 			objeto.setGlEnumPolygon(GL_FILL); 
 			return 0; 
 		} else { 
@@ -88,7 +84,6 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		objeto.setChess(true); 
 		objetoJerarquico.setChess(true);
 		if(!isJerarquico){
-			//objeto.colorearChess(); 
 			objeto.setGlEnumPolygon(GL_FILL); 
 			return 0; 
 		} else {
@@ -119,15 +114,12 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	 	return 0;
 	}
 	else if (toupper(Tecla1)=='4') {   
-		
-		cout << "REVOLUC" << endl;
 		objeto.setChess(false); 
 		objeto.clear();
 		objetoRevolucionado.read("./ply/revolucion.ply");
 		objetoRevolucionado.revolucionar();
    		objeto = objetoRevolucionado;
    		if (toupper(Tecla1)=='4') {
-
    			objetoRevolucionado.close();
 	 	}
 	 	return 0;
@@ -137,38 +129,9 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		objetoJerarquico.setChess(false); 
 		objeto.clear();
 		return 0;
-	} 
-	else if (toupper(Tecla1)=='Z') { 
-			if(isJerarquico)
-				objetoJerarquico.girarPlataformaIzq();
-			return 0;
-	}
-	else if (toupper(Tecla1)=='X') { 
-			if(isJerarquico)
-				objetoJerarquico.girarPlataformaDer();
-			return 0;
-	}
-	else if (toupper(Tecla1)=='C') { 
-			if(isJerarquico)
-				objetoJerarquico.avanzarPlataforma();
-			return 0;
-	}
-	else if (toupper(Tecla1)=='V') { 
-			if(isJerarquico)
-				objetoJerarquico.retrocederPlataforma();
-			return 0;
-	}
-	else if (toupper(Tecla1)=='B') { 
-			if(isJerarquico)
-				objetoJerarquico.subir();
-			return 0;
-	}
-	else if (toupper(Tecla1)=='N') { 
-			if(isJerarquico)
-				objetoJerarquico.bajar();
-			return 0;
-	}
-	else return 0;
+	} else return objetoJerarquico.move(Tecla1);
+
+	//else return 0;
 }
 
 void Escena::teclaEspecial(int Tecla1,int x,int y) {

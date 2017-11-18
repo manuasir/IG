@@ -29,6 +29,7 @@ public:
 	void subir(){ ejeY-=0.05; }
 	void bajar(){ ejeY+=0.05; }
 	virtual void dibujar(){ construir(); }
+	int move(unsigned char Tecla1);
 };
 
 #endif

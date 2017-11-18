@@ -12,8 +12,34 @@ ObjetoJerarquico::ObjetoJerarquico(){
 	//dibujaTercerCuerpo();
 	dibujaPlataforma();
 	//dibujaCuerda();
-};
+}
 
+int ObjetoJerarquico::move(unsigned char Tecla1){
+	if (toupper(Tecla1)=='Z') { 
+			girarPlataformaIzq();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='X') { 
+			girarPlataformaDer();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='C') { 
+			avanzarPlataforma();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='V') { 
+			retrocederPlataforma();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='B') { 
+			subir();
+			return 0;
+	}
+	else if (toupper(Tecla1)=='N') { 
+			bajar();
+			return 0;
+	} else return 0;
+}
 void ObjetoJerarquico::dibujaBase(){
 	//glPushMatrix();
 		base.trasladar(-10,0,0);
@@ -66,7 +92,6 @@ void ObjetoJerarquico::construir(){
 		if(!Objeto3D::getChess()){
 			base.dibujar();
 		} else{
-			cout << "chess activado"<<endl;
 			base.dibujar();
 			base.setChess(true);
 			//base.colorearChess();

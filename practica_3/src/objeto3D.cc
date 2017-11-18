@@ -104,7 +104,8 @@ void Objeto3D::dibujar(){
 				//glPushMatrix();
 				if(getChess())
 					children[i].setChess(true);
-				children[i].dibujar();	
+				children[i].dibujar();
+				children[i].setGlEnumPolygon(modePolygon);	
 				//glPopMatrix();
 			}
 	glPopMatrix();

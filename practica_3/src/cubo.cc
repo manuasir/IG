@@ -53,7 +53,5 @@ void Cubo::createArrayData(){
 	indices.push_back(_vertex3i(1,4,5));
 	indices.push_back(_vertex3i(2,6,4));
 	indices.push_back(_vertex3i(0,2,4));
-	// colorear la figura
-	Objeto3D::colorear();
 }
 
