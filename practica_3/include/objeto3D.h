@@ -33,7 +33,7 @@ public:
 
 public:
 	Objeto3D();
-	void dibujar();
+	virtual void dibujar();
 	void setNumTri(int num){ num_tri=num; }
 	void setGlEnumPolygon(GLenum elem){ modePolygon=elem; }
 	void colorear();
@@ -51,9 +51,9 @@ public:
 	int getTamVertices(){ return vertices.size(); }
 	int getTamIndices(){ return indices.size(); }
 	void dibujaObjeto();
-	void rotar(float angulo,float x,float y,float z){ grados=angulo, rotateX=x; rotateY=y; rotateZ=z; dibujar(); };
-	void escalar(float x,float y,float z){ scaleX=x; scaleY=y; scaleZ=z; dibujar(); };
-	void trasladar(float x,float y,float z){ translateX=x; translateY=y; translateZ=z; dibujar(); };
+	void rotar(float angulo,float x,float y,float z){ grados=angulo, rotateX=x; rotateY=y; rotateZ=z; };
+	void escalar(float x,float y,float z){ scaleX=x; scaleY=y; scaleZ=z; };
+	void trasladar(float x,float y,float z){ translateX=x; translateY=y; translateZ=z; };
 	void setHijo(Objeto3D obj){ children.push_back(obj); };
 };
 #endif

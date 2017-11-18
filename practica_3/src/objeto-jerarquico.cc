@@ -5,6 +5,12 @@ ObjetoJerarquico::ObjetoJerarquico(){
 	anguloArriba=0;
 	ejeX=0;
 	ejeY=1.0;
+	dibujaBase();
+	dibujaPrimerCuerpo();
+	//dibujaSegundoCuerpo();
+	//dibujaTercerCuerpo();
+	dibujaPlataforma();
+	//dibujaCuerda();
 };
 
 void ObjetoJerarquico::dibujaBase(){
@@ -17,42 +23,32 @@ void ObjetoJerarquico::dibujaBase(){
 
 void ObjetoJerarquico::dibujaPrimerCuerpo(){
 	//glPushMatrix();
-		tetra.trasladar(0,5,0);
-		tetra.escalar(0.2,1,0.1);
-		base.setHijo(tetra);
+		//cout << "cuerpo " << endl;
+		Cubo cuerpo;
+		cuerpo.trasladar(25,50,25);
+		cuerpo.escalar(0.5,10,0.5);
+		//cuerpo.rotar(90,1,0,1);
+		base.setHijo(cuerpo);
 	//glPopMatrix();
 }
 
-void ObjetoJerarquico::dibujaSegundoCuerpo(){
-	//glPushMatrix();
-		tetra.trasladar(0,55,0);
-		tetra.escalar(0.2,0.5,0.1);
-		base.setHijo(tetra);
-		//tetra.dibujar();
-	//glPopMatrix();
-}
-
-void ObjetoJerarquico::dibujaTercerCuerpo(){
-	//glPushMatrix();
-		tetra.trasladar(0,80,0);
-		tetra.escalar(0.1,0.5,0.1);
-		base.setHijo(tetra);
-		//tetra.dibujar();
-	//glPopMatrix();
-}
 
 void ObjetoJerarquico::dibujaPlataforma(){
 	//glPushMatrix();
-		tetra.trasladar(-7,95,0);
-		tetra.rotar(90.0, 1.0, 0.0, 0.0);
-		tetra.escalar(0.3,1,0.1);
-		base.setHijo(tetra);
+		Cubo plataforma;
+		plataforma.trasladar(25,500,15);
+		//plataforma.rotar(90.0, 1.0, 0.0, 0.0);
+		plataforma.escalar(2,1,1);
+		base.setHijo(plataforma);
 		//base.dibujar();
 	//glPopMatrix();
 }
 
 void ObjetoJerarquico::dibujaCuerda(){
 	//glPushMatrix();
+			//cout << "cuerpo cuerda" << endl;
+
+		Tetraedro tetra;
 		tetra.trasladar(0,90,50);
 		tetra.rotar(180.0, 1.0, 0.0, 0.0);
 		tetra.escalar(0.05,1,0.05);
@@ -61,10 +57,11 @@ void ObjetoJerarquico::dibujaCuerda(){
 	//glPopMatrix();
 }
 
-void ObjetoJerarquico::dibujaObjeto(){
+void ObjetoJerarquico::construir(){
 	//glPushMatrix();
-		base.rotar(30,0.0,1.0,0.0);
-		base.trasladar(ejeX,0.0,0.0);
+		//base.rotar(30,0.0,1.0,0.0);
+		//base.trasladar(ejeX,0.0,0.0);
+	//cout << "construyendo objeto " << endl;
 		base.dibujar();
 		//dibujaBase();
 		//dibujaPrimerCuerpo();

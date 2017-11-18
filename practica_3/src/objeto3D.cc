@@ -11,6 +11,7 @@
 * Constructores
 */
 Objeto3D::Objeto3D(){
+	chess=false;
 	rotateX=0;
 	rotateY=0;
 	rotateZ=0;
@@ -65,11 +66,12 @@ void Objeto3D::colorearChess(){
 	}	
 }
 
-
 /**
 * Esta función se llama 30 veces por segundo (30 FPS)
 */
 void Objeto3D::dibujaObjeto(){
+			cout << "dentro de dibujaobjeto... " << endl;
+
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState( GL_COLOR_ARRAY );
 	glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);
@@ -84,21 +86,30 @@ void Objeto3D::dibujaObjeto(){
 		glDrawElements( GL_TRIANGLES, indicesImpares.size()*3 ,GL_UNSIGNED_INT, indicesImpares.data() ) ;	
 
 	}else{
+		cout << "glDrawElements... " << endl;
+
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
 		glDrawElements( GL_TRIANGLES, indices.size()*3 ,GL_UNSIGNED_INT, indices.data() ) ;	
 	}	
 }
 
 void Objeto3D::dibujar(){
+	//cout << "dibujando objeto3d..." << endl;
 	glPushMatrix();
-		glScalef(scaleX,scaleY,scaleZ);
-		glRotatef(grados,rotateX,rotateY,rotateZ);
+		cout << "push en dibujar Objeto3D" << endl;
 		glTranslatef(translateX,translateY,translateZ);
+		glRotatef(grados,rotateX,rotateY,rotateZ);
+		glScalef(scaleX,scaleY,scaleZ);
+		cout << "dibujaobjeto..." << endl;
+
 		dibujaObjeto();
 		if(children.size()>0)
 			for(int i=0;i<children.size();++i){
-				children[i].dibujar();
+				//glPushMatrix();
+					cout << "dibujando hijo " << i << endl;
+					children[i].dibujar();
+				//glPopMatrix();
 			}
+		cout << "pop en dibujar Objeto3D" << endl;
 	glPopMatrix();
 }
-

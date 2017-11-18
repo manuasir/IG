@@ -38,7 +38,7 @@ void Escena::draw_objects() {
 	if(!isJerarquico)
 		objeto.dibujar();
 	else
-		objetoJerarquico.dibujaObjeto();
+		objetoJerarquico.dibujar();
 }	
 
 void Escena::dibujar() {

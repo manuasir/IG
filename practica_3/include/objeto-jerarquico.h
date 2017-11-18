@@ -19,7 +19,7 @@ public:
 	void dibujaPrimerCuerpo();
 	void dibujaSegundoCuerpo();
 	void dibujaTercerCuerpo();
-	void dibujaObjeto();
+	void construir();
 	void dibujaPlataforma();
 	void dibujaCuerda();
 	void girarPlataformaIzq(){ anguloArriba++; }
@@ -28,7 +28,7 @@ public:
 	void retrocederPlataforma(){ ejeX--; }
 	void subir(){ ejeY-=0.05; }
 	void bajar(){ ejeY+=0.05; }
-	void dibujar(){ base.dibujar(); }
+	void dibujar(){ construir(); }
 };
 
 #endif
