@@ -5,6 +5,7 @@ ObjetoJerarquico::ObjetoJerarquico(){
 	anguloArriba=0;
 	ejeX=0;
 	ejeY=1.0;
+	chess=false;
 	dibujaBase();
 	dibujaPrimerCuerpo();
 	//dibujaSegundoCuerpo();
@@ -37,7 +38,7 @@ void ObjetoJerarquico::dibujaPlataforma(){
 	//glPushMatrix();
 		Cubo plataforma;
 		plataforma.trasladar(25,500,15);
-		//plataforma.rotar(90.0, 1.0, 0.0, 0.0);
+		plataforma.rotar(90.0, 1.0, 0.0, 0.0);
 		plataforma.escalar(2,1,1);
 		base.setHijo(plataforma);
 		//base.dibujar();
@@ -59,10 +60,17 @@ void ObjetoJerarquico::dibujaCuerda(){
 
 void ObjetoJerarquico::construir(){
 	//glPushMatrix();
-		//base.rotar(30,0.0,1.0,0.0);
-		//base.trasladar(ejeX,0.0,0.0);
-	//cout << "construyendo objeto " << endl;
-		base.dibujar();
+		base.rotar(30,0.0,1.0,0.0);
+		base.trasladar(ejeX,0.0,0.0);
+		if(!Objeto3D::getChess()){
+			base.dibujar();
+		} else{
+			cout << "chess activado"<<endl;
+			base.dibujar();
+			base.setChess(true);
+			base.colorearChess();
+			base.setGlEnumPolygon(GL_FILL); 
+		}
 		//dibujaBase();
 		//dibujaPrimerCuerpo();
 		//glPushMatrix();

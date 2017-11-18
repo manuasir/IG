@@ -86,6 +86,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	}
 	else if (toupper(Tecla1)=='A') {   
 		objeto.setChess(true); 
+		objetoJerarquico.setChess(true);
 		if(!isJerarquico){
 			objeto.colorearChess(); 
 			objeto.setGlEnumPolygon(GL_FILL); 
@@ -133,6 +134,8 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	}
 	else if (toupper(Tecla1)=='5') {   
 		isJerarquico=true;
+		objetoJerarquico.setChess(false); 
+		objeto.clear();
 		return 0;
 	} 
 	else if (toupper(Tecla1)=='Z') { 

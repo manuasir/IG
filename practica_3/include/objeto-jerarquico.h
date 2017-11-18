@@ -28,7 +28,7 @@ public:
 	void retrocederPlataforma(){ ejeX--; }
 	void subir(){ ejeY-=0.05; }
 	void bajar(){ ejeY+=0.05; }
-	void dibujar(){ construir(); }
+	virtual void dibujar(){ construir(); }
 };
 
 #endif

@@ -33,12 +33,13 @@ public:
 
 public:
 	Objeto3D();
-	virtual void dibujar();
+	void dibujar();
 	void setNumTri(int num){ num_tri=num; }
 	void setGlEnumPolygon(GLenum elem){ modePolygon=elem; }
 	void colorear();
 	void colorearChess();
 	void setChess(bool val){ chess=val; }
+	bool getChess(){ return chess; }
 	void clear();
 	vector<_vertex3i> & getIndices(){ return indices; }
 	vector<_vertex3f> & getVertices(){ return vertices; }
@@ -55,5 +56,6 @@ public:
 	void escalar(float x,float y,float z){ scaleX=x; scaleY=y; scaleZ=z; };
 	void trasladar(float x,float y,float z){ translateX=x; translateY=y; translateZ=z; };
 	void setHijo(Objeto3D obj){ children.push_back(obj); };
+	Objeto3D & getHijo(int i){ return children[i]; };
 };
 #endif
