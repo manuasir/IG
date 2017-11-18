@@ -9,16 +9,16 @@
 class ObjetoJerarquico: public Objeto3D{
 private:
 	Cubo base;
-	Tetraedro tetra;
-	float ejeX,ejeY;
+	Cubo plataforma;
+	Cubo cuerpo;
+	Cubo cuerda;
+	float ejeX,ejeY,ejeZ,ejeXcuerda,ejeZcuerda;
 	float anguloArriba;
 public:
 
 	ObjetoJerarquico();
 	void dibujaBase();
-	void dibujaPrimerCuerpo();
-	void dibujaSegundoCuerpo();
-	void dibujaTercerCuerpo();
+	void dibujaCuerpo();
 	void construir();
 	void dibujaPlataforma();
 	void dibujaCuerda();

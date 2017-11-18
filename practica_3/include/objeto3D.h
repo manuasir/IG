@@ -56,7 +56,8 @@ public:
 	void rotar(float angulo,float x,float y,float z){ grados=angulo, rotateX=x; rotateY=y; rotateZ=z; };
 	void escalar(float x,float y,float z){ scaleX=x; scaleY=y; scaleZ=z; };
 	void trasladar(float x,float y,float z){ translateX=x; translateY=y; translateZ=z; };
-	void setHijo(Objeto3D obj){ children.push_back(obj); };
+	void setHijo(Objeto3D obj){ cout << "añadiendo hijo..." << endl; children.push_back(obj); };
 	Objeto3D & getHijo(int i){ return children[i]; };
+	vector<Objeto3D> & getChildren(){ return children; };
 };
 #endif

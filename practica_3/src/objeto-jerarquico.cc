@@ -4,91 +4,83 @@ using namespace std;
 ObjetoJerarquico::ObjetoJerarquico(){
 	anguloArriba=0;
 	ejeX=0;
+	ejeXcuerda=50;
 	ejeY=1.0;
 	chess=false;
 	dibujaBase();
-	dibujaPrimerCuerpo();
-	//dibujaSegundoCuerpo();
-	//dibujaTercerCuerpo();
+	dibujaCuerpo();
 	dibujaPlataforma();
-	//dibujaCuerda();
+	dibujaCuerda();
 }
 
 int ObjetoJerarquico::move(unsigned char Tecla1){
-	if (toupper(Tecla1)=='Z') { 
+	if (Tecla1=='Z') { 
 			girarPlataformaIzq();
 			return 0;
 	}
-	else if (toupper(Tecla1)=='X') { 
+	else if (Tecla1=='z') { 
 			girarPlataformaDer();
 			return 0;
 	}
-	else if (toupper(Tecla1)=='C') { 
+	else if (Tecla1=='X') { 
 			avanzarPlataforma();
 			return 0;
 	}
-	else if (toupper(Tecla1)=='V') { 
+	else if (Tecla1=='x') { 
 			retrocederPlataforma();
 			return 0;
 	}
-	else if (toupper(Tecla1)=='B') { 
+	else if (Tecla1=='C') { 
 			subir();
 			return 0;
 	}
-	else if (toupper(Tecla1)=='N') { 
+	else if (Tecla1=='c') { 
 			bajar();
+			return 0;
+	} 
+	else if (Tecla1=='V') { 
+			ejeXcuerda++;
+			return 0;
+	}
+	else if (Tecla1=='v') { 
+			ejeXcuerda--;
 			return 0;
 	} else return 0;
 }
+
 void ObjetoJerarquico::dibujaBase(){
-	//glPushMatrix();
-		base.trasladar(-10,0,0);
-		base.escalar(0.5,0.1,0.5);
-		//base.dibujar();
-	//glPopMatrix();
+	base.trasladar(-10,0,0);
+	base.escalar(0.5,0.1,0.5);
 }
 
-void ObjetoJerarquico::dibujaPrimerCuerpo(){
-	//glPushMatrix();
-		//cout << "cuerpo " << endl;
-		Cubo cuerpo;
-		cuerpo.trasladar(25,50,25);
-		cuerpo.escalar(0.5,10,0.5);
-		//cuerpo.rotar(90,1,0,1);
-		base.setHijo(cuerpo);
-	//glPopMatrix();
+void ObjetoJerarquico::dibujaCuerpo(){
+	cuerpo.trasladar(25,50,25);
+	cuerpo.escalar(0.5,10,0.5);
+	base.setHijo(cuerpo);
 }
-
 
 void ObjetoJerarquico::dibujaPlataforma(){
-	//glPushMatrix();
-		Cubo plataforma;
-		plataforma.trasladar(25,500,15);
-		plataforma.rotar(90.0, 1.0, 0.0, 0.0);
-		plataforma.escalar(2,1,1);
-		base.setHijo(plataforma);
-		//base.dibujar();
-	//glPopMatrix();
+	plataforma.trasladar(37.5,550,37.5);
+	plataforma.rotar(90.0, 1.0, 0.0, 0.0);
+	plataforma.escalar(2,1,0.5);
 }
 
 void ObjetoJerarquico::dibujaCuerda(){
-	//glPushMatrix();
-			//cout << "cuerpo cuerda" << endl;
-
-		Tetraedro tetra;
-		tetra.trasladar(0,90,50);
-		tetra.rotar(180.0, 1.0, 0.0, 0.0);
-		tetra.escalar(0.05,1,0.05);
-		base.setHijo(tetra);
-		//base.dibujar();
-	//glPopMatrix();
+	cout << "pintando cuerda " << endl;
+	cuerda.trasladar(25,0,25);
+	cuerda.rotar(180.0, 1.0, 0.0, 0.0);
+	cuerda.escalar(0.05,1,0.05);
+	plataforma.setHijo(cuerda);
+	base.setHijo(plataforma);
 }
 
 void ObjetoJerarquico::construir(){
 	base.setGlEnumPolygon(Objeto3D::getGlEnumPolygon()); 
 	base.rotar(30,0.0,1.0,0.0);
 	base.trasladar(ejeX,0.0,0.0);
-	base.getHijo(1).rotar(anguloArriba,1,0,1);
+	base.getHijo(1).rotar(anguloArriba,0,1,0);
+	base.getHijo(1).getHijo(0).trasladar(ejeXcuerda,0,25);
+	base.getHijo(1).getHijo(0).escalar(0.01,ejeY,0.1);
 	if(!Objeto3D::getChess()){
 		base.setChess(false);
 		base.dibujar();
@@ -96,10 +88,4 @@ void ObjetoJerarquico::construir(){
 		base.setChess(true);
 		base.dibujar();
 	}
-};
-
-/*
-void ObjetoJerarquico::setTipo(Objeto3D::DrawMode tip){
-		tipo = tip;
-	};
-*/
+}
