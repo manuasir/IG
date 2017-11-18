@@ -106,6 +106,7 @@ void Objeto3D::dibujar(){
 					}
 					children[i].setGlEnumPolygon(modePolygon);
 					children[i].dibujar();
+					children[i].setChess(chess);
 				glPopMatrix();
 			}
 	glPopMatrix();

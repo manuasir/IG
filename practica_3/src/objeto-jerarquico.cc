@@ -73,11 +73,9 @@ void ObjetoJerarquico::construir(){
 	base.getHijo(1).rotar(anguloArriba,0,1,0);
 	base.getHijo(1).getHijo(0).trasladar(ejeXcuerda,0,25);
 	base.getHijo(1).getHijo(0).escalar(0.01,ejeY,0.1);
-	if (!Objeto3D::getChess()) {
+	if (!Objeto3D::getChess()) 
 		base.setChess(false);
-		base.dibujar();
-	} else {
+	else 
 		base.setChess(true);
-		base.dibujar();
-	}
+	base.dibujar();
 }
