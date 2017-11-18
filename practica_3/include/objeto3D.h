@@ -36,6 +36,7 @@ public:
 	void dibujar();
 	void setNumTri(int num){ num_tri=num; }
 	void setGlEnumPolygon(GLenum elem){ modePolygon=elem; }
+	const GLenum getGlEnumPolygon() const { return modePolygon; }
 	void colorear();
 	void colorearChess();
 	void setChess(bool val){ chess=val; }

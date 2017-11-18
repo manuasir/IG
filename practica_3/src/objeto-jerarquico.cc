@@ -85,35 +85,17 @@ void ObjetoJerarquico::dibujaCuerda(){
 }
 
 void ObjetoJerarquico::construir(){
-	//glPushMatrix();
-		base.rotar(30,0.0,1.0,0.0);
-		base.trasladar(ejeX,0.0,0.0);
-		base.getHijo(1).rotar(anguloArriba,1,0,1);
-		if(!Objeto3D::getChess()){
-			base.dibujar();
-		} else{
-			base.dibujar();
-			base.setChess(true);
-			//base.colorearChess();
-			base.setGlEnumPolygon(GL_FILL); 
-		}
-		//dibujaBase();
-		//dibujaPrimerCuerpo();
-		//glPushMatrix();
-			//glRotatef(180,1.0,0.0,0.0);
-			//dibujaSegundoCuerpo();
-			//dibujaTercerCuerpo();
-			//glPushMatrix();
-			//	glRotatef(anguloArriba,0.0,1.0,0.0);
-			//	dibujaPlataforma();
-			//	glPushMatrix();
-			//		glScalef(1,ejeY,1);
-			//		dibujaCuerda();
-
-			//	glPopMatrix();
-			//glPopMatrix();
-		//glPopMatrix();
-	//glPopMatrix();
+	base.setGlEnumPolygon(Objeto3D::getGlEnumPolygon()); 
+	base.rotar(30,0.0,1.0,0.0);
+	base.trasladar(ejeX,0.0,0.0);
+	base.getHijo(1).rotar(anguloArriba,1,0,1);
+	if(!Objeto3D::getChess()){
+		base.setChess(false);
+		base.dibujar();
+	} else{
+		base.setChess(true);
+		base.dibujar();
+	}
 };
 
 /*

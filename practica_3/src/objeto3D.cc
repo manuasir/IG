@@ -72,9 +72,9 @@ void Objeto3D::colorearChess(){
 void Objeto3D::dibujaObjeto(){
 
 	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState( GL_COLOR_ARRAY );
+	glEnableClientState( GL_COLOR_ARRAY);
 	glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);
-	glVertexPointer(3, GL_FLOAT, 0, vertices.data() );
+	glVertexPointer(3, GL_FLOAT, 0, vertices.data());
 	glPolygonMode(GL_FRONT_AND_BACK,modePolygon);
 	glPointSize(5);
 
@@ -85,7 +85,7 @@ void Objeto3D::dibujaObjeto(){
 		glColorPointer( 3, GL_FLOAT, 0, coloresImpares.data());
 		glDrawElements( GL_TRIANGLES, indicesImpares.size()*3 ,GL_UNSIGNED_INT, indicesImpares.data() ) ;	
 
-	}else{
+	} else{
 		colorear();
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
 		glDrawElements( GL_TRIANGLES, indices.size()*3 ,GL_UNSIGNED_INT, indices.data() ) ;	
@@ -97,16 +97,14 @@ void Objeto3D::dibujar(){
 		glTranslatef(translateX,translateY,translateZ);
 		glRotatef(grados,rotateX,rotateY,rotateZ);
 		glScalef(scaleX,scaleY,scaleZ);
-
 		dibujaObjeto();
 		if(children.size()>0)
 			for(int i=0;i<children.size();++i){
-				//glPushMatrix();
-				if(getChess())
+				if(getChess()){
 					children[i].setChess(true);
+				}
+				children[i].setGlEnumPolygon(modePolygon);
 				children[i].dibujar();
-				children[i].setGlEnumPolygon(modePolygon);	
-				//glPopMatrix();
 			}
 	glPopMatrix();
 }

@@ -51,81 +51,66 @@ void Escena::dibujar() {
 
 int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	GLenum modePolygon;
-	if (toupper(Tecla1)=='Q') {objeto.clear(); return 1;}
+	if (toupper(Tecla1)=='Q') { objeto.clear(); objetoJerarquico.clear(); return 1; }
 	else if (toupper(Tecla1)=='P') {   
-		objeto.setChess(false); 
-		if(!isJerarquico){ 
-			objeto.setGlEnumPolygon(GL_POINT); 
-			return 0; 
-		} else {
-			return 0;
-		}
-	}
-	else if (toupper(Tecla1)=='L') {   
 		objeto.setChess(false);
-		if(!isJerarquico){ 
-			objeto.setGlEnumPolygon(GL_LINE); 
-		return 0; 
-		} else {
-			return 0;
-		}
+		objetoJerarquico.setChess(false);
+		objeto.setGlEnumPolygon(GL_POINT); 
+		objetoJerarquico.setGlEnumPolygon(GL_POINT); 
+		return 0; 	
+	} else if (toupper(Tecla1)=='L') {   
+		objeto.setChess(false);
+		objetoJerarquico.setChess(false);
+		objeto.setGlEnumPolygon(GL_LINE); 
+		objetoJerarquico.setGlEnumPolygon(GL_LINE);
+		return 0;
 	}
 	else if (toupper(Tecla1)=='S') {   
-		
-		objeto.setChess(false); 
-		if(!isJerarquico){ 
-			objeto.setGlEnumPolygon(GL_FILL); 
-			return 0; 
-		} else { 
-			return 0; 
-		}
+		objeto.setChess(false);
+		objetoJerarquico.setChess(false);
+		objeto.setGlEnumPolygon(GL_FILL);
+		objetoJerarquico.setGlEnumPolygon(GL_FILL);
+		return 0;
+
 	}
 	else if (toupper(Tecla1)=='A') {   
 		objeto.setChess(true); 
 		objetoJerarquico.setChess(true);
-		if(!isJerarquico){
-			objeto.setGlEnumPolygon(GL_FILL); 
-			return 0; 
-		} else {
-			return 0;
-		}
-	}
-	else if (toupper(Tecla1)=='1') {   
+		objeto.setGlEnumPolygon(GL_FILL); 
+		objetoJerarquico.setGlEnumPolygon(GL_FILL); 
+		return 0;
+
+	} else if (toupper(Tecla1)=='1') {   
 		isJerarquico=false; 
 		objeto.clear(); 
 		objeto = cubo; 
 		return 0; 
-	}
-	else if (toupper(Tecla1)=='2') {   
+	} else if (toupper(Tecla1)=='2') {   
 		isJerarquico=false; 
 		objeto.clear(); 
 		objeto = tetraedro; 
 		return 0; 
-	}
-	else if (toupper(Tecla1)=='3') {   
+	} else if (toupper(Tecla1)=='3') {   
 		isJerarquico=false;
 		objeto.setChess(false); 
+		objetoJerarquico.setChess(false); 
 		objeto.clear();
 		objetoPly.leerFichero(path_ply);
    		objeto = objetoPly;
-   		if (toupper(Tecla1)=='3') {
-   			objetoPly.closeFile();
-	 	}
+		objetoPly.closeFile();
 	 	return 0;
-	}
-	else if (toupper(Tecla1)=='4') {   
+	} else if (toupper(Tecla1)=='4') {   
 		objeto.setChess(false); 
+		objetoJerarquico.setChess(false); 
 		objeto.clear();
 		objetoRevolucionado.read("./ply/revolucion.ply");
 		objetoRevolucionado.revolucionar();
    		objeto = objetoRevolucionado;
-   		if (toupper(Tecla1)=='4') {
-   			objetoRevolucionado.close();
-	 	}
+		objetoRevolucionado.close();
 	 	return 0;
-	}
-	else if (toupper(Tecla1)=='5') {   
+	} else if (toupper(Tecla1)=='5') {   
 		isJerarquico=true;
+		objeto.setChess(false); 
 		objetoJerarquico.setChess(false); 
 		objeto.clear();
 		return 0;
