@@ -97,19 +97,14 @@ void Objeto3D::dibujar(){
 		glTranslatef(translateX,translateY,translateZ);
 		glRotatef(grados,rotateX,rotateY,rotateZ);
 		glScalef(scaleX,scaleY,scaleZ);
-		cout << "numero de hijos de esta figura " << children.size() << endl;
-
 		dibujaObjeto();
-		if(children.size()>0)
-			for(int i=0;i<children.size();++i){
-				cout << "pintando hijo " << i << endl;
+		if (children.size()>0)
+			for (int i=0;i<children.size();++i){
 				glPushMatrix();
-					if(getChess()){
+					if (getChess()){
 						children[i].setChess(true);
 					}
 					children[i].setGlEnumPolygon(modePolygon);
-					cout << "hijos de hijo nº " << i << " : " << children[i].getChildren().size();
-
 					children[i].dibujar();
 				glPopMatrix();
 			}

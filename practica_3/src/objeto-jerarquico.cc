@@ -17,32 +17,25 @@ int ObjetoJerarquico::move(unsigned char Tecla1){
 	if (Tecla1=='Z') { 
 			girarPlataformaIzq();
 			return 0;
-	}
-	else if (Tecla1=='z') { 
+	} else if (Tecla1=='z') { 
 			girarPlataformaDer();
 			return 0;
-	}
-	else if (Tecla1=='X') { 
+	} else if (Tecla1=='X') { 
 			avanzarPlataforma();
 			return 0;
-	}
-	else if (Tecla1=='x') { 
+	} else if (Tecla1=='x') { 
 			retrocederPlataforma();
 			return 0;
-	}
-	else if (Tecla1=='C') { 
+	} else if (Tecla1=='C') { 
 			subir();
 			return 0;
-	}
-	else if (Tecla1=='c') { 
+	} else if (Tecla1=='c') { 
 			bajar();
 			return 0;
-	} 
-	else if (Tecla1=='V') { 
+	} else if (Tecla1=='V') { 
 			avanzarCuerda();
 			return 0;
-	}
-	else if (Tecla1=='v') { 
+	} else if (Tecla1=='v') { 
 			retrocederCuerda();
 			return 0;
 	} else return 0;
@@ -66,7 +59,6 @@ void ObjetoJerarquico::dibujaPlataforma(){
 }
 
 void ObjetoJerarquico::dibujaCuerda(){
-	cout << "pintando cuerda " << endl;
 	cuerda.trasladar(25,0,25);
 	cuerda.rotar(180.0, 1.0, 0.0, 0.0);
 	cuerda.escalar(0.05,1,0.05);
@@ -81,10 +73,10 @@ void ObjetoJerarquico::construir(){
 	base.getHijo(1).rotar(anguloArriba,0,1,0);
 	base.getHijo(1).getHijo(0).trasladar(ejeXcuerda,0,25);
 	base.getHijo(1).getHijo(0).escalar(0.01,ejeY,0.1);
-	if(!Objeto3D::getChess()){
+	if (!Objeto3D::getChess()) {
 		base.setChess(false);
 		base.dibujar();
-	} else{
+	} else {
 		base.setChess(true);
 		base.dibujar();
 	}
