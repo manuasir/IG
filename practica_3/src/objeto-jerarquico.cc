@@ -62,13 +62,14 @@ void ObjetoJerarquico::construir(){
 	//glPushMatrix();
 		base.rotar(30,0.0,1.0,0.0);
 		base.trasladar(ejeX,0.0,0.0);
+		base.getHijo(1).rotar(anguloArriba,1,0,1);
 		if(!Objeto3D::getChess()){
 			base.dibujar();
 		} else{
 			cout << "chess activado"<<endl;
 			base.dibujar();
 			base.setChess(true);
-			base.colorearChess();
+			//base.colorearChess();
 			base.setGlEnumPolygon(GL_FILL); 
 		}
 		//dibujaBase();

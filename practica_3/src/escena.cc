@@ -56,7 +56,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		objeto.setChess(false); 
 		if(!isJerarquico){ 
 
-			objeto.colorear(); 
+			//objeto.colorear(); 
 			objeto.setGlEnumPolygon(GL_POINT); 
 			return 0; 
 		} else {
@@ -66,7 +66,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 	else if (toupper(Tecla1)=='L') {   
 		objeto.setChess(false);
 		if(!isJerarquico){ 
-			objeto.colorear();
+			//objeto.colorear();
 			objeto.setGlEnumPolygon(GL_LINE); 
 		return 0; 
 		} else {
@@ -77,7 +77,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		
 		objeto.setChess(false); 
 		if(!isJerarquico){ 
-			objeto.colorear(); 
+			//objeto.colorear(); 
 			objeto.setGlEnumPolygon(GL_FILL); 
 			return 0; 
 		} else { 
@@ -88,7 +88,7 @@ int Escena::teclaPulsada(unsigned char Tecla1,int x,int y) {
 		objeto.setChess(true); 
 		objetoJerarquico.setChess(true);
 		if(!isJerarquico){
-			objeto.colorearChess(); 
+			//objeto.colorearChess(); 
 			objeto.setGlEnumPolygon(GL_FILL); 
 			return 0; 
 		} else {

@@ -79,13 +79,14 @@ void Objeto3D::dibujaObjeto(){
 	glPointSize(5);
 
 	if(chess){
+		colorearChess();
 		glColorPointer( 3, GL_FLOAT, 0, coloresPares.data());
 		glDrawElements( GL_TRIANGLES, indicesPares.size()*3 ,GL_UNSIGNED_INT, indicesPares.data() ) ;	
 		glColorPointer( 3, GL_FLOAT, 0, coloresImpares.data());
 		glDrawElements( GL_TRIANGLES, indicesImpares.size()*3 ,GL_UNSIGNED_INT, indicesImpares.data() ) ;	
 
 	}else{
-
+		colorear();
 		glColorPointer( 3, GL_FLOAT, 0, colores.data());
 		glDrawElements( GL_TRIANGLES, indices.size()*3 ,GL_UNSIGNED_INT, indices.data() ) ;	
 	}	
