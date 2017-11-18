@@ -4,7 +4,7 @@ using namespace std;
 ObjetoJerarquico::ObjetoJerarquico(){
 	anguloArriba=0;
 	ejeX=0;
-	ejeXcuerda=50;
+	ejeXcuerda=48;
 	ejeY=1.0;
 	chess=false;
 	dibujaBase();
@@ -39,11 +39,11 @@ int ObjetoJerarquico::move(unsigned char Tecla1){
 			return 0;
 	} 
 	else if (Tecla1=='V') { 
-			ejeXcuerda++;
+			avanzarCuerda();
 			return 0;
 	}
 	else if (Tecla1=='v') { 
-			ejeXcuerda--;
+			retrocederCuerda();
 			return 0;
 	} else return 0;
 }
