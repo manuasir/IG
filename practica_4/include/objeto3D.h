@@ -24,6 +24,8 @@ public:
 	vector<_vertex3i> indices;
 	vector<_vertex3i> indicesPares;
 	vector<_vertex3i> indicesImpares;
+	vector<_vertex3f> normalesCaras;
+	vector<_vertex3f> normalesVertices;
 	vector<Objeto3D> children;
 
 	int num_tri;
@@ -59,5 +61,8 @@ public:
 	void setHijo(Objeto3D obj){ cout << "añadiendo hijo..." << endl; children.push_back(obj); };
 	Objeto3D & getHijo(int i){ return children[i]; };
 	vector<Objeto3D> & getChildren(){ return children; };
+	void generarNormalesCaras();
+	void generarNormalesVertices();
+	void generarNormales();
 };
 #endif
