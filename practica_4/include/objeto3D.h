@@ -64,5 +64,6 @@ public:
 	void generarNormalesCaras();
 	void generarNormalesVertices();
 	void generarNormales();
+	void drawNormales() const ;
 };
 #endif

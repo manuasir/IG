@@ -22,6 +22,7 @@ Objeto3D::Objeto3D(){
 	translateY=0;
 	translateZ=0;
 	grados=0;
+	generarNormales();
 }
 
 void Objeto3D::generarNormales() {
@@ -91,46 +92,39 @@ void Objeto3D::colorear(){
 	}
 }
 
-void Objeto3D::generarNormalesVertices()
-{
+void Objeto3D::generarNormalesVertices() {
 
-    // Generamos las normales de los vertices
+	// Generamos las normales de los vertices
 
-    vector<_vertex3f> normales_vertices;
+	vector<_vertex3f> normales_vertices;
 
 
-    // Recorremos los vertices
-    for(int i = 0; i < vertices.size(); i++)
-    {
+	// Recorremos los vertices
+	for(int i = 0; i < vertices.size(); i++)	{
 
-        _vertex3f verticeactual = vertices[i];
-        _vertex3f normal(0,0,0);
+		_vertex3f verticeactual = vertices[i];
+		_vertex3f normal(0,0,0);
 
-        // Recorremos las caras
-        for(int h = 0; h < indices.size(); h++)
-        {
-            // Comprobamos si el vertice esta en otra cara (por la posicion)
-            if (indices[h]._0 == i || indices[h]._1 == i || indices[h]._2 == i)
-            {
-                normal = _vertex3f(normal.x + normalesCaras[h].x,
-                                    normal.y + normalesCaras[h].y,
-                                    normal.z + normalesCaras[h].z);
-            }
+		// Recorremos las caras
+		for(int h = 0; h < indices.size(); h++)	{
+			// Comprobamos si el vertice esta en otra cara (por la posicion)
+			if (indices[h]._0 == i || indices[h]._1 == i || indices[h]._2 == i) {
+				normal = _vertex3f(normal.x + normalesCaras[h].x,normal.y + normalesCaras[h].y,normal.z + normalesCaras[h].z);
+			}
+		}
 
-        }
+		// Antonio para normalizar
+		float modulo=sqrt(normal.x*normal.x+normal.y*normal.y+normal.z*normal.z);
+		normal.x=normal.x/modulo;
+		normal.y=normal.y/modulo;
+		normal.z=normal.z/modulo;
+		// Fin Antonio
 
-        // Antonio para normalizar
-        float modulo=sqrt(normal.x*normal.x+normal.y*normal.y+normal.z*normal.z);
-        normal.x=normal.x/modulo;
-        normal.y=normal.y/modulo;
-        normal.z=normal.z/modulo;
-        // Fin Antonio
+		// La agregago al vector
+		normales_vertices.push_back(normal);
+	}
 
-        // La agregago al vector
-        normales_vertices.push_back(normal);
-    }
-
-    normalesVertices=normales_vertices;
+	normalesVertices=normales_vertices;
 
 }
 
@@ -178,8 +172,37 @@ void Objeto3D::dibujaObjeto(){
 	}
 }
 
+void Objeto3D::drawNormales() const
+{
+
+	float t = 0.2;
+
+	glPointSize(2);
+	glColor3f(0, 0, 1);
+
+
+	glBegin(GL_LINES);
+
+	for (int i= 0; i < vertices.size(); i++)
+	{
+		_vertex3f _1 = vertices[i];
+		_vertex3f _2;
+
+		_2.x = _1.x + t * normalesVertices[i].x;
+		_2.y = _1.y + t * normalesVertices[i].y;
+		_2.z = _1.z + t * normalesVertices[i].z;
+
+		glVertex3f(_1.x, _1.y, _1.z);
+		glVertex3f(_2.x, _2.y, _2.z);
+	}
+
+	glEnd();
+
+}
+
 void Objeto3D::dibujar(){
 	glPushMatrix();
+	drawNormales();
 	glTranslatef(translateX,translateY,translateZ);
 	glRotatef(grados,rotateX,rotateY,rotateZ);
 	glScalef(scaleX,scaleY,scaleZ);
