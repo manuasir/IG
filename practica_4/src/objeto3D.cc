@@ -202,7 +202,6 @@ void Objeto3D::drawNormales() const
 
 void Objeto3D::dibujar(){
 	glPushMatrix();
-	drawNormales();
 	glTranslatef(translateX,translateY,translateZ);
 	glRotatef(grados,rotateX,rotateY,rotateZ);
 	glScalef(scaleX,scaleY,scaleZ);
